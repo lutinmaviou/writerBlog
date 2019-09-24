@@ -1,8 +1,8 @@
 <?php $title = $post['title'];
 ob_start();
 ?>
-<h2><?= $post['title'] ?></h2>
-<p><?= $post['chapterContent'] ?></p>
+<h2><?= htmlspecialChars(trim($post['title'])) ?></h2>
+<p><?= nl2br(htmlspecialchars(trim($post['chapterContent']))) ?></p>
 <form action="index.php?action=updatePost&amp;id=<?= $_GET['id'] ?>" method="POST">
     <button>Modifier</button>
 </form>
@@ -29,8 +29,8 @@ ob_start();
 <?php
 while ($data = $comments->fetch()) {
     ?>
-    <h4><?= $data['author'] . ' le ' . $data['commentDateFr'] ?></h4>
-    <p><?= $data['commentContent'] ?></p>
+    <h4><?= htmlspecialChars(trim($data['author'])) . ' le ' . $data['commentDateFr'] ?></h4>
+    <p><?= nl2br(htmlspecialchars(trim($data['commentContent']))) ?></p>
     <form action="index.php?action=deleteComment&amp;id=<?= $data['id'] ?>" method="POST">
         <button>Supprimer</button>
     </form>
