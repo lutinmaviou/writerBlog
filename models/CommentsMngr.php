@@ -14,7 +14,7 @@ class Models_CommentsMngr extends Models_DbConnect
     }
     public function getComment($commentId)
     {
-        $comment = $this->_dbConnect()->prepare('SELECT id, author, commentContent,
+        $comment = $this->_dbConnect()->prepare('SELECT id, post_id, author, commentContent,
         DATE_FORMAT(commentDate, \'%d/%m/%Y\')
         AS commentDateFr FROM comments');
         $comment->execute(array($commentId));

@@ -27,6 +27,8 @@ ob_start();
 </form>
 <h3>Commentaires</h3>
 <?php
+var_dump(boolval($_GET['id']));
+
 while ($data = $comments->fetch()) {
     ?>
     <h4><?= htmlspecialChars(trim($data['author'])) . ' le ' . $data['commentDateFr'] ?></h4>
