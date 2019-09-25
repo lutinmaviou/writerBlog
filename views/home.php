@@ -5,22 +5,23 @@ ob_start(); ?>
     <p>Suivez son évolution au fur et à mesure de mon écriture !</p>
     <img src="public/img/Sans titre.png" alt="">
 </div>
-<h2>Derniers chapitres</h2>
+<h3>Derniers chapitres</h3>
 <?php
 while ($data = $req->fetch()) {
     ?>
-    <div>
+    <div id="chapters_view">
         <a href="index.php?action=post&amp;id=<?= $data['id']; ?>">
-            <h3>
-                <?php echo htmlspecialchars($data['title']); ?>
-                <em>le <?php echo $data['postDateFr']; ?></em>
-            </h3>
+            <h4>
+                <?php echo htmlspecialchars(ucfirst($data['title'])); ?>
+                <em><span class="date_font"> publié le <?php echo $data['postDateFr']; ?></span></em>
+            </h4>
         </a>
         <p>
             <?php
-                echo nl2br(htmlspecialchars(substr($data['chapterContent'], 0, 100))) . " ...";
+                echo nl2br(htmlspecialchars(ucfirst(substr($data['chapterContent'], 0, 100)))) . " ...";
                 ?>
             <br />
+            <span class="read_more">Lire la suite</span>
         </p>
     </div>
 <?php

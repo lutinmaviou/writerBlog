@@ -5,8 +5,11 @@ body {
     color: rgb(58, 58, 58);
 }
 
-header a {
+a {
     text-decoration: none;
+}
+
+header a {
     color: white;
 }
 
@@ -59,4 +62,22 @@ h1 {
 #book_presentation {
     text-align: center;
     margin-top: 50px;
+}
+
+h3 {
+    margin: 20px 0 0 50px;
+    text-decoration: underline;
+}
+
+#chapters_view {
+    margin-left: 50px;
+}
+
+.date_font {
+    font-size: 0.8em;
+}
+
+.read_more {
+    font-size: 0.8em;
+    color: rgb(57, 149, 255);
 }
