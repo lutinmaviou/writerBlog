@@ -3,7 +3,7 @@ ob_start(); ?>
 <div id="book_presentation">
     <h2>Mon dernier roman en ligne</h2>
     <p>Suivez son évolution au fur et à mesure de mon écriture !</p>
-    <img src="public/img/Sans titre.png" alt="">
+    <img src="public/img/Sans titre.png" alt="book">
 </div>
 <h3>Derniers chapitres</h3>
 <?php
@@ -28,7 +28,21 @@ while ($data = $req->fetch()) {
 }
 ?>
 <a href="views/createPostView.php">Créer un nouveau chapitre</a>
+<h5>Pagination</h5>
+
 <?php
+for ($i = 1; $i <= $nbPages; $i++) {
+    if ($i === $currentPage) {
+        echo $i . ' - ';
+    } else {
+        echo '<a href="index.php?page=' . $i . '">' . $i . '</a> ';
+    }
+}
+echo '<br />' . $currentPage;
+echo '<br />' . $nbPosts;
+echo '<br />' . $nbPages;
+
+
 
 $req->closeCursor();
 $content = ob_get_clean();

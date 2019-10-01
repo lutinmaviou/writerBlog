@@ -32,8 +32,9 @@ var_dump(boolval($_GET['id']));
 while ($data = $comments->fetch()) {
     ?>
     <h4><?= htmlspecialChars(trim($data['author'])) . ' le ' . $data['commentDateFr'] ?></h4>
-    <p><?= nl2br(htmlspecialchars(trim($data['commentContent']))) ?><span id="report">
-            <i class="far fa-angry"></i> Signaler ce commentaire</span></p>
+    <p><?= nl2br(htmlspecialchars(trim($data['commentContent']))) ?></p>
+    <span id="report">
+        <a href="#"><i class="far fa-angry"></i> Signaler</a></span>
     <form action="index.php?action=deleteComment&amp;id=<?= $data['id'] ?>" method="POST">
         <button>Supprimer</button>
     </form>

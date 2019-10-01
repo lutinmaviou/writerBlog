@@ -81,3 +81,8 @@ h3 {
     font-size: 0.8em;
     color: rgb(57, 149, 255);
 }
+
+#report {
+    color: red;
+    font-size: 0.7em;
+}

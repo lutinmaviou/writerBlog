@@ -1,11 +1,36 @@
 <?php
 require_once('models/PostsMngr.php');
 require_once('models/CommentsMngr.php');
+require_once('models/Pagination.php');
+
 
 function readPosts()
 {
     $listPosts = new Models_PostsMngr;
-    $req = $listPosts->getPosts();
+    $pagination = new Models_Pagination;
+    $nbPosts = $pagination->getPostsPagination();
+    $postsPerPage = 3;
+    $nbPages = ceil($nbPosts / $postsPerPage);
+    /*if (!isset($_GET['page'])) {
+        $currentPage = 0;
+    } else {
+        if (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $nbPage) {
+            $currentPage = (intval($_GET['page']) - 1) * $postsPerPage;
+        }
+    }*/
+    if (isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page'])) {
+        if ($_GET['page'] > $nbPages) {
+            $currentPage = $nbPages;
+        } else {
+            $currentPage = $_GET['page'];
+        }
+    } else {
+        $currentPage = 1;
+    }
+    $firstOfPage = ($currentPage - 1) * $postsPerPage;
+
+    $req = $listPosts->getPosts($firstOfPage, $postsPerPage);
+
     require('views/home.php');
 }
 function readPost()

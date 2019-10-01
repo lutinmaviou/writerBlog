@@ -10,13 +10,13 @@ class Models_PostsMngr extends Models_DbConnect
         $newPost = $req->execute(array($title, $chapterContent));
         return $newPost;
     }
-    public function getPosts()
+    public function getPosts($firstOfPage, $postsPerPage)
     {
         $req = $this->_dbConnect()->query('SELECT id, title, chapterContent, 
         DATE_FORMAT(postDate, \'%d/%m/%Y à %H:%i\') AS postDateFr
         FROM posts 
         ORDER BY postDate 
-        DESC LIMIT 0, 5');
+        DESC LIMIT ' . $firstOfPage . ',' . $postsPerPage . '');
         return $req;
     }
     public function getPost($postId)
