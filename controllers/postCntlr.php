@@ -41,10 +41,14 @@ function readPost()
     }
     require('views/postView.php');
 }
+<<<<<<< HEAD
 function displayNewPost()
 {
     require('views/createPostView.php');
 }
+=======
+
+>>>>>>> a338509d90fdf1fbea40677765459cb168244fe5
 function createPost($title, $chapterContent)
 {
     $addPost = new Models_PostsMngr;
