@@ -29,17 +29,26 @@ class Models_PostsMngr extends Models_DbConnect
         $post = $req->fetch();
         return $post;
     }
+    public function getLastPost()
+    {
+        $req = $this->_dbConnect()->query("SELECT MAX(id) AS id FROM posts");
+        $lastPost = $req->fetch();
+        return $lastPost;
+    }
     public function changePost($title, $chapterContent)
     {
-        $req = $this->_dbConnect()->prepare('UPDATE posts SET title = ?, chapterContent = ?, NOW() WHERE id=' . $_GET['id']);
+        $req = $this->_dbConnect()->prepare('UPDATE posts 
+        SET title = ?, chapterContent = ?, NOW() 
+        WHERE id= ?');
         $updatedPost = $req->execute(array($title, $chapterContent));
         return $updatedPost;
     }
     public function removePost($postId)
     {
-        $req = $this->_dbConnect()->prepare('DELETE posts, comments FROM posts
-        INNER JOIN comments ON comments.post_id = posts.id WHERE posts.id= ?');
-        $selectedPost = $req->execute(array($postId));
-        return $selectedPost;
+        // Outer join to delete the post even if there are no comments
+        $req = $this->_dbConnect()->prepare('DELETE p, c FROM posts p
+        LEFT JOIN comments c ON c.post_id = p.id WHERE p.id= ?');
+        $deletedPost = $req->execute(array($postId));
+        return $deletedPost;
     }
 }
