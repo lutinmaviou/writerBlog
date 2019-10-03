@@ -11,13 +11,6 @@ function readPosts()
     $nbPosts = $pagination->getPostsPagination();
     $postsPerPage = 3;
     $nbPages = ceil($nbPosts / $postsPerPage);
-    /*if (!isset($_GET['page'])) {
-        $currentPage = 0;
-    } else {
-        if (isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $nbPage) {
-            $currentPage = (intval($_GET['page']) - 1) * $postsPerPage;
-        }
-    }*/
     if (isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page'])) {
         if ($_GET['page'] > $nbPages) {
             $currentPage = $nbPages;
@@ -39,8 +32,16 @@ function readPost()
     $readComments = new Models_CommentsMngr;
     $post = $readPost->getPost($_GET['id']);
     $comments = $readComments->getComments($_GET['id']);
+    $lastId = $readPost->getLastPost();
+    if ($_GET['id'] > $lastId['id']) {
+        die('Ce post n\'existe pas');
+    } else {
+        $post;
+        $comments;
+    }
     require('views/postView.php');
 }
+
 function createPost($title, $chapterContent)
 {
     $addPost = new Models_PostsMngr;
