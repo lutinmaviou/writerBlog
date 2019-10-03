@@ -3,12 +3,31 @@ ob_start();
 ?>
 <h2><?= htmlspecialChars(trim($post['title'])) ?></h2>
 <p><?= nl2br(htmlspecialchars(trim($post['chapterContent']))) ?></p>
-<form action="index.php?action=updatePost&amp;id=<?= $_GET['id'] ?>" method="POST">
+<form action="index.php?action=updatePost&amp;id=<?= $post['id'] ?>" method="POST">
     <button>Modifier</button>
 </form>
-<form action="index.php?action=deletePost&amp;id=<?= $_GET['id'] ?>" method="POST">
+<form action="index.php?action=deletePost&amp;id=<?= $post['id'] ?>" method="POST">
     <button>Supprimer</button>
 </form>
+<h3>Commentaires</h3>
+<?php
+var_dump(empty($comments));
+if (empty($comments)) {
+    echo '<p>Soyez le premier  laisser un commentaire';
+} else {
+    foreach ($comments as $data) {
+        ?>
+        <h4><?= htmlspecialChars(trim($data['author'])) . ' le ' . $data['commentDateFr'] ?></h4>
+        <p><?= nl2br(htmlspecialchars(trim($data['commentContent']))) ?></p>
+        <span id="report">
+            <a href="#"><i class="far fa-angry"></i> Signaler</a></span>
+        <form action="index.php?action=deleteComment&amp;id=<?= $data['id'] ?>" method="POST">
+            <button>Supprimer</button>
+        </form>
+<?php
+    }
+}
+?>
 <h3>Ajouter un commentaire</h3>
 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="POST">
     <div>
@@ -25,23 +44,10 @@ ob_start();
         <button>Envoyer</button>
     </div>
 </form>
-<h3>Commentaires</h3>
-<?php
-var_dump(boolval($_GET['id']));
 
-while ($data = $comments->fetch()) {
-    ?>
-    <h4><?= htmlspecialChars(trim($data['author'])) . ' le ' . $data['commentDateFr'] ?></h4>
-    <p><?= nl2br(htmlspecialchars(trim($data['commentContent']))) ?></p>
-    <span id="report">
-        <a href="#"><i class="far fa-angry"></i> Signaler</a></span>
-    <form action="index.php?action=deleteComment&amp;id=<?= $data['id'] ?>" method="POST">
-        <button>Supprimer</button>
-    </form>
 <?php
-    var_dump($data['id']);
-}
-$comments->closecursor();
+
+//$comments->closecursor();
 $content = ob_get_clean();
 require('template.php');
 ?>

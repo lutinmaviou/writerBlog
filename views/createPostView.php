@@ -1,7 +1,7 @@
 <?php $title = 'Nouveau post';
 ob_start();
 ?>
-<form action='../index.php?action=addNewPost' method='POST'>
+<form action='index.php?action=addNewPost' method='POST'>
     <label for='title'>Titre :
         <input type="text" name='title' id='title'>
     </label>

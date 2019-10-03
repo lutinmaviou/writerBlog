@@ -9,24 +9,28 @@ try {
             } else {
                 throw new Exception('Erreur : aucun identifiant de billet envoyé');
             }
+        } elseif ($_GET['action'] === 'newPost') {
+            displayNewPost();
         } elseif ($_GET['action'] === 'addNewPost') {
             if (!empty($_POST['title']) && !empty($_POST['chapterContent'])) {
                 createPost($_POST['title'], $_POST['chapterContent']);
             } else {
-                throw new Exception('Erreur : aucun contenu');
+                throw new Exception('Aucun contenu');
             }
         } elseif ($_GET['action'] === 'deletePost') {
-            deletePost($_GET['id']);
-            echo 'Le post a bien été supprimé';
-        } elseif ($_GET['action'] === 'submitUpdatePost') {
-            if (!empty($_POST['title']) && !empty($_POST['chapterContent'])) {
-                updatePost($_POST['title'], $_POST['chapterContent']);
-            } else {
-                throw new Exception('Erreur : aucun contenu');
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                deletePost($_GET['id']);
+                echo 'Le post a bien été supprimé';
             }
         } elseif ($_GET['action'] === 'updatePost') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                displayUpdate();
+                displayUpdatePost();
+            } else echo 'Aucun identifiant de post';
+        } elseif ($_GET['action'] === 'submitUpdatePost') {
+            if (!empty($_POST['title']) && !empty($_POST['chapterContent'])) {
+                updatePost($_POST['title'], $_POST['chapterContent'], $_GET['id']);
+            } else {
+                throw new Exception('Erreur : aucun contenu');
             }
         } elseif ($_GET['action'] === 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {

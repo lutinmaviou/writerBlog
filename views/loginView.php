@@ -27,7 +27,7 @@ while ($data = $req->fetch()) {
 <?php
 }
 ?>
-<a href="index.php?action=newPost">Créer un nouveau chapitre</a>
+<a href="views/createPostView.php">Créer un nouveau chapitre</a>
 <h5>Pagination</h5>
 
 <?php

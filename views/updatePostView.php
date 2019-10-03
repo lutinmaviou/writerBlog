@@ -11,6 +11,9 @@ ob_start();
     <button>Valider</button>
 </form>
 <?php
+var_dump($post['id']);
+var_dump($_GET['id']);
+
 $content = ob_get_clean();
 require('template.php');
 ?>

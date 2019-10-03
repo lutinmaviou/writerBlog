@@ -6,10 +6,11 @@ class Models_CommentsMngr extends Models_DbConnect
 
     public function getComments($postId)
     {
-        $comments = $this->_dbConnect()->prepare('SELECT id, author, commentContent,
+        $req = $this->_dbConnect()->prepare('SELECT id, author, commentContent,
         DATE_FORMAT(commentDate, \'%d/%m/%Y\')
 	    AS commentDateFr FROM comments WHERE post_id = ? ORDER BY commentDate DESC');
-        $comments->execute(array($postId));
+        $req->execute(array($postId));
+        $comments = $req->fetchAll();
         return $comments;
     }
     public function getComment($commentId)

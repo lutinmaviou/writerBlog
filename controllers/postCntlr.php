@@ -41,14 +41,17 @@ function readPost()
     }
     require('views/postView.php');
 }
-
+function displayNewPost()
+{
+    require('views/createPostView.php');
+}
 function createPost($title, $chapterContent)
 {
     $addPost = new Models_PostsMngr;
     $newPost = $addPost->addPost($title, $chapterContent);
     header('Location: index.php');
 }
-function displayUpdate()
+function displayUpdatePost()
 {
     $updatePost = new Models_PostsMngr();
     $post = $updatePost->getPost($_GET['id']);
