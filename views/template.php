@@ -42,8 +42,8 @@
             <ul>
                 <li><a href="index.php"><i class="fas fa-home"></i> Accueil</a></li>
                 <li><a href=""><i class="fas fa-book"></i> Chapitres</a></li>
-                <li><a href=""><i class="fas fa-user"></i> Connexion</a></li>
-                <li><a href=""><i class="fas fa-file-signature"></i> S'inscrire</a></li>
+                <li><a href="index.php?action=login"><i class="fas fa-user"></i> Connexion</a></li>
+                <li><a href="index.php?action=subscribe"><i class="fas fa-file-signature"></i> S'inscrire</a></li>
             </ul>
         </div>
     </header>

@@ -1,6 +1,7 @@
 <?php
 require_once('controllers/postCntlr.php');
 require_once('controllers/commentCntrl.php');
+require_once('controllers/navCntrl.php');
 try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] === 'post') {
@@ -46,6 +47,14 @@ try {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 deleteComment($_GET['id']);
             }
+        } elseif ($_GET['action'] === 'login') {
+            displayLoginView();
+        } elseif ($_GET['action'] === 'submitLogin') {
+            submitLogin();
+        } elseif ($_GET['action'] === 'subscribe') {
+            displaySubscribeView();
+        } elseif ($_GET['action'] === 'submitSubscribe') {
+            submitSubscribe();
         }
     } else {
         readPosts();

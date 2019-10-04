@@ -1,7 +1,7 @@
 <?php $title = 'Le blog de Jean Forteroche';
 ob_start(); ?>
-<img src="public/img/admin.png" alt="user picture">
-<form action="index.php?action=submitLogin" method="POST">
+<img src="public/img/user.png" alt="user picture">
+<form action="index.php?action=submitSubscribe" method="POST">
     <label for="pseudo">Pseudo :
         <input type="text" name="pseudo" id="pseudo">
     </label>
@@ -9,7 +9,6 @@ ob_start(); ?>
         <input type="password" name="password" id="password">
     </label>
     <button>Valider</button>
-    <p>Pas encore inscrit? <i class="fas fa-sign-in-alt"></i></p>
 </form>
 <?php
 $content = ob_get_clean();
