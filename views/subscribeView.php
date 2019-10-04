@@ -1,7 +1,7 @@
 <?php $title = 'Le blog de Jean Forteroche';
 ob_start(); ?>
 <img src="public/img/user.png" alt="user picture">
-<form action="index.php?action=submitSubscribe" method="POST">
+<form action="index.php?action=addMember" method="POST">
     <label for="pseudo">Pseudo :
         <input type="text" name="pseudo" id="pseudo">
     </label>

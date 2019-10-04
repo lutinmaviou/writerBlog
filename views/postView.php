@@ -13,12 +13,12 @@ ob_start();
 <?php
 var_dump(empty($comments));
 if (empty($comments)) {
-    echo '<p>Soyez le premier  laisser un commentaire';
+    echo '<p>Soyez le premier à laisser un commentaire.';
 } else {
     foreach ($comments as $data) {
         ?>
         <h4><?= htmlspecialChars(trim($data['author'])) . ' le ' . $data['commentDateFr'] ?></h4>
-        <p><?= nl2br(htmlspecialchars(trim($data['commentContent']))) ?></p>
+        <p><?= nl2br(htmlspecialchars(trim(ucfirst($data['commentContent'])))) ?></p>
         <span id="report">
             <a href="#"><i class="far fa-angry"></i> Signaler</a></span>
         <form action="index.php?action=deleteComment&amp;id=<?= $data['id'] ?>" method="POST">

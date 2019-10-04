@@ -12,16 +12,17 @@ while ($data = $req->fetch()) {
     <div id="chapters_view">
         <a href="index.php?action=post&amp;id=<?= $data['id']; ?>">
             <h4>
-                <?php echo htmlspecialchars(ucfirst($data['title'])); ?>
-                <em><span class="date_font"> publié le <?php echo $data['postDateFr']; ?></span></em>
-            </h4>
-        </a>
+                <?php echo htmlspecialchars(trim(ucfirst($data['title']))); ?>
+                <em><span class="date_font">
+        </a> publié le <?php echo $data['postDateFr']; ?></span></em>
+        </h4>
+
         <p>
             <?php
-                echo nl2br(htmlspecialchars(ucfirst(substr($data['chapterContent'], 0, 100)))) . " ...";
+                echo nl2br(htmlspecialchars(trim(ucfirst(substr($data['chapterContent'], 0, 100))))) . " ...";
                 ?>
             <br />
-            <span class="read_more">Lire la suite</span>
+            <span class="read_more"><a href="index.php?action=post&amp;id=<?= $data['id']; ?>">Lire la suite</a></span>
         </p>
     </div>
 <?php

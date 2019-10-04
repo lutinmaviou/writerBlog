@@ -9,7 +9,7 @@ ob_start(); ?>
         <input type="password" name="password" id="password">
     </label>
     <button>Valider</button>
-    <p>Pas encore inscrit? <i class="fas fa-sign-in-alt"></i></p>
+    <p><a href="index.php?action=subscribe">Pas encore inscrit? <i class="fas fa-sign-in-alt"></i></a></p>
 </form>
 <?php
 $content = ob_get_clean();

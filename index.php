@@ -1,7 +1,8 @@
 <?php
+session_start();
 require_once('controllers/postCntlr.php');
 require_once('controllers/commentCntrl.php');
-require_once('controllers/navCntrl.php');
+require_once('controllers/memberCntrl.php');
 try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] === 'post') {
@@ -50,11 +51,23 @@ try {
         } elseif ($_GET['action'] === 'login') {
             displayLoginView();
         } elseif ($_GET['action'] === 'submitLogin') {
-            submitLogin();
+            submitLogin(strip_tags($_POST['pseudo']), strip_tags($_POST['pswd']));
         } elseif ($_GET['action'] === 'subscribe') {
             displaySubscribeView();
-        } elseif ($_GET['action'] === 'submitSubscribe') {
-            submitSubscribe();
+        } elseif ($_GET['action'] === 'addMember') {
+            if (!empty($_POST['pseudo']) && !empty($_POST['password'])) {
+                /*if (
+                    strlen($_POST['password'] < 6)
+                    || strlen($_POST['password'] > 20)
+                    || preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $_POST['password'])
+                ) {
+                    echo 'Mot de passe non conforme';
+                } else {*/
+                addMember(strip_tags($_POST['pseudo']), strip_tags($_POST['password']), 'user');
+                //}
+            }
+        } else {
+            echo 'Tous les champs ne sont pas remplis!';
         }
     } else {
         readPosts();
