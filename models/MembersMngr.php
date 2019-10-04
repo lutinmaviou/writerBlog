@@ -12,8 +12,8 @@ class Models_MembersMngr extends Models_DbConnect
     }
     public function getMemberInfos($pseudo, $pswd)
     {
-        $req = $this->_bdConnect()->prepare('SELECT pseudo, password, status 
-        FROM members WHERE pseudo = ?');
+        $req = $this->_dbConnect()->prepare('SELECT pseudo, password, status 
+        FROM members');
         $req->execute(array($pseudo, $pswd));
         $member = $req->fetch();
         return $member;

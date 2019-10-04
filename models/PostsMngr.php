@@ -12,7 +12,7 @@ class Models_PostsMngr extends Models_DbConnect
     }
     public function getPosts($firstOfPage, $postsPerPage)
     {
-        $req = $this->_dbConnect()->query('SELECT id, title, chapterContent, 
+        $req = $this->_dbConnect()->query('SELECT id, title, chapterContent,
         DATE_FORMAT(postDate, \'%d/%m/%Y à %H:%i\') AS postDateFr
         FROM posts 
         ORDER BY postDate 

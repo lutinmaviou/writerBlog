@@ -29,6 +29,18 @@ function addMember($pseudo, $pswd, $status)
 }
 function submitLogin($pseudo, $pswd)
 {
+    // password hash and salt
+    /*$pswd = $_POST['password'];
+    $long = strlen($pswd);
+    $pswd = '&*+=' . $long . $pswd . '**6\(';
+    $pswd = hash('512', $pswd);*/
+    // **********************
+
     $connect = new Models_MembersMngr;
     $infos = $connect->getMemberInfos($pseudo, $pswd);
+    if ($_POST['password'] === $pswd) {
+        header('Location: index.php');
+    } else {
+        echo 'echec de l\'identification';
+    }
 }
