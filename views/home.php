@@ -36,7 +36,7 @@ for ($i = 1; $i <= $nbPages; $i++) {
     if ($i === $currentPage) {
         echo $i . ' - ';
     } else {
-        echo '<a href="index.php?page=' . $i . '"> ' . $i . ' </a> ';
+        echo '<a href="index.php?page=' . $i . '"> ' . $i . ' - </a> ';
     }
 }
 echo '<br />' . $currentPage;
