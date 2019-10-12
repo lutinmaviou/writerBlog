@@ -27,7 +27,7 @@ function addMember($pseudo, $pswd, $status)
 
     header('Location: index.php');
 }
-function submitLogin($pseudo, $pswd)
+function submitLogin($pseudo)
 {
     // password hash and salt
     /*$pswd = $_POST['password'];
@@ -37,10 +37,18 @@ function submitLogin($pseudo, $pswd)
     // **********************
 
     $connect = new Models_MembersMngr;
-    $infos = $connect->getMemberInfos($pseudo, $pswd);
-    if ($_POST['password'] === $pswd) {
-        header('Location: index.php');
+    $infosMbr = $connect->getMemberInfos($pseudo);
+    if ($_POST['password'] === $infosMbr['password'] && $_POST['pseudo'] === $pseudo) {
+        $_SESSION['id'] = $infosMbr['id'];
+        $_SESSION['pseudo'] = $pseudo;
+        header('Location: index.php?login=success');
     } else {
         echo 'echec de l\'identification';
     }
+}
+function logout()
+{
+    $_SESSION = [];
+    session_destroy();
+    header('Location: index.php');
 }

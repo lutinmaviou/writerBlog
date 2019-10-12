@@ -11,7 +11,7 @@ try {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 readPost();
             } else {
-                throw new Exception('Erreur : aucun identifiant de billet envoyé');
+                throw new Exception('Aucun identifiant de billet envoyé');
             }
         } elseif ($_GET['action'] === 'newPost') {
             displayNewPost();
@@ -34,7 +34,7 @@ try {
             if (!empty($_POST['title']) && !empty($_POST['chapterContent'])) {
                 updatePost($_POST['title'], $_POST['chapterContent'], $_GET['id']);
             } else {
-                throw new Exception('Erreur : aucun contenu');
+                throw new Exception('Aucun contenu');
             }
         } elseif ($_GET['action'] === 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -44,7 +44,7 @@ try {
                     echo 'Erreur : tous les champs ne sont pas remplis !';
                 }
             } else {
-                throw new Exception('Erreur : aucun identifiant de billet reconnu');
+                throw new Exception('Aucun identifiant de billet reconnu');
             }
         } elseif ($_GET['action'] === 'deleteComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -56,7 +56,7 @@ try {
             if (!empty($_POST['pseudo']) && !empty($_POST['password'])) {
                 submitLogin(strip_tags($_POST['pseudo']), strip_tags($_POST['password']));
             } else {
-                echo 'Tous les champs ne sont pas remplis!';
+                echo 'Les champs ne sont pas tous remplis!';
             }
         } elseif ($_GET['action'] === 'subscribe') {
             displaySubscribeView();
@@ -70,6 +70,8 @@ try {
             } else {
                 echo 'Les champs ne sont pas tous remplis';
             }
+        } elseif ($_GET['action'] === 'logout') {
+            logout();
         }
     } else {
         readPosts();

@@ -57,10 +57,11 @@ function displayUpdatePost()
     $post = $updatePost->getPost($_GET['id']);
     require('views/updatePostView.php');
 }
-function updatePost($title, $chapterContent)
+function updatePost($title, $chapterContent, $postId)
 {
     $updatePost = new Models_PostsMngr;
-    $modifyPost = $updatePost->changePost($title, $chapterContent);
+    $postId = $_GET['id'];
+    $modifyPost = $updatePost->changePost($title, $chapterContent, $postId);
     header('Location: index.php');
 }
 function deletePost($postId)

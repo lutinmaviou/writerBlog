@@ -35,12 +35,12 @@ class Models_PostsMngr extends Models_DbConnect
         $lastPost = $req->fetch();
         return $lastPost;
     }
-    public function changePost($title, $chapterContent)
+    public function changePost($title, $chapterContent, $postId)
     {
         $req = $this->_dbConnect()->prepare('UPDATE posts 
-        SET title = ?, chapterContent = ?, NOW() 
+        SET title = ?, chapterContent = ? 
         WHERE id= ?');
-        $updatedPost = $req->execute(array($title, $chapterContent));
+        $updatedPost = $req->execute(array($title, $chapterContent, $postId));
         return $updatedPost;
     }
     public function removePost($postId)

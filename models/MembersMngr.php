@@ -10,11 +10,11 @@ class Models_MembersMngr extends Models_DbConnect
         $newMember = $req->execute(array($pseudo, $pswd, $status));
         return $newMember;
     }
-    public function getMemberInfos($pseudo, $pswd)
+    public function getMemberInfos($pseudo)
     {
-        $req = $this->_dbConnect()->prepare('SELECT pseudo, password, status 
-        FROM members');
-        $req->execute(array($pseudo, $pswd));
+        $req = $this->_dbConnect()->prepare('SELECT id, password, status 
+        FROM members WHERE pseudo= ?');
+        $req->execute(array($pseudo));
         $member = $req->fetch();
         return $member;
     }

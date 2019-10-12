@@ -1,5 +1,9 @@
 <?php $title = 'Le blog de Jean Forteroche';
-ob_start(); ?>
+ob_start();
+if ($_SESSION) {
+    echo 'Bonjour ' . $_SESSION['pseudo'];
+}
+?>
 <div id="book_presentation">
     <h2>Mon dernier roman en ligne</h2>
     <p>Suivez son évolution au fur et à mesure de mon écriture !</p>
@@ -42,7 +46,6 @@ for ($i = 1; $i <= $nbPages; $i++) {
 echo '<br />' . $currentPage;
 echo '<br />' . $nbPosts;
 echo '<br />' . $nbPages;
-
 $req->closeCursor();
 $content = ob_get_clean();
 require('views/template.php');
