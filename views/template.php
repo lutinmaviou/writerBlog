@@ -40,20 +40,16 @@
                 <h1>Jean Forteroche</h1>
             </a>
             <ul>
+                <li><a href="index.php"><i class="fas fa-home"></i> Accueil</a></li>
                 <?php
+                if ($_SESSION && $_SESSION['status'] === '1') {
+                    echo '<li><a href=""><i class="fas fa-pen-nib"></i> Créer</a></li>';
+                } elseif (!$_SESSION) {
+                    echo '<li><a href="index.php?action=login"><i class="fas fa-user"></i> Connexion</a></li>';
+                    echo '<li><a href="index.php?action=subscribe"><i class="fas fa-file-signature"></i> S\'inscrire</a></li>';
+                }
                 if ($_SESSION) {
-                    ?>
-                    <li><a href="index.php"><i class="fas fa-home"></i> Accueil</a></li>
-                    <li><a href=""><i class="fas fa-book"></i> Chapitres</a></li>
-                    <li><a href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i> Quitter</a></li>
-                <?php
-                } else {
-                    ?>
-                    <li><a href="index.php"><i class="fas fa-home"></i> Accueil</a></li>
-                    <li><a href=""><i class="fas fa-book"></i> Chapitres</a></li>
-                    <li><a href="index.php?action=login"><i class="fas fa-user"></i> Connexion</a></li>
-                    <li><a href="index.php?action=subscribe"><i class="fas fa-file-signature"></i> S'inscrire</a></li>
-                <?php
+                    echo '<li><a href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i> Quitter</a></li>';
                 }
                 ?>
             </ul>

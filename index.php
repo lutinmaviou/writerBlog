@@ -5,7 +5,6 @@ require_once('controllers/commentCntrl.php');
 require_once('controllers/memberCntrl.php');
 
 try {
-
     if (isset($_GET['action'])) {
         if ($_GET['action'] === 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -41,7 +40,7 @@ try {
                 if (!empty($_POST['author']) && !empty($_POST['commentContent'])) {
                     createComment($_GET['id'], $_POST['author'], $_POST['commentContent']);
                 } else {
-                    echo 'Erreur : tous les champs ne sont pas remplis !';
+                    echo 'Erreur : les champs ne sont pas tous remplis !';
                 }
             } else {
                 throw new Exception('Aucun identifiant de billet reconnu');
@@ -62,11 +61,8 @@ try {
             displaySubscribeView();
         } elseif ($_GET['action'] === 'addMember') {
             if (!empty($_POST['pseudo']) && !empty($_POST['password'])) {
-                if (!preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $_POST['password'])) {
-                    echo 'Mot de passe non conforme';
-                } else {
-                    addMember(strip_tags($_POST['pseudo']), strip_tags($_POST['password']), 'user');
-                }
+                // Member status : 1 = admin, 0 = member
+                addMember(strip_tags($_POST['pseudo']), strip_tags($_POST['password']), 0);
             } else {
                 echo 'Les champs ne sont pas tous remplis';
             }

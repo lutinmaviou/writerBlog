@@ -11,37 +11,29 @@ function displaySubscribeView()
 }
 function addMember($pseudo, $pswd, $status)
 {
-    // password hash and salt
-    /*$pswd = $_POST['password'];
-    $long = strlen($pswd);
-    $pswd = '&*+=' . $long . $pswd . '**6\(';
-    $pswd = hash('512', $pswd);*/
-    // **********************
-
-    // password_hash($_POST['password, PASSWORD_DEFAULT) ???
-    // password_verify()
-    // est-ce mieux?
-
+    $pswd = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $newMember = new  Models_MembersMngr;
     $member = $newMember->newMember($pseudo, $pswd, $status);
+    $infosMbr = $newMember->getMemberInfos($pseudo);
+    $_SESSION['id'] = $infosMbr['id'];
+    $_SESSION['pseudo'] = $pseudo;
 
     header('Location: index.php');
 }
 function submitLogin($pseudo)
 {
-    // password hash and salt
-    /*$pswd = $_POST['password'];
-    $long = strlen($pswd);
-    $pswd = '&*+=' . $long . $pswd . '**6\(';
-    $pswd = hash('512', $pswd);*/
-    // **********************
-
     $connect = new Models_MembersMngr;
     $infosMbr = $connect->getMemberInfos($pseudo);
-    if ($_POST['password'] === $infosMbr['password'] && $_POST['pseudo'] === $pseudo) {
+    $correctPswd = password_verify($_POST['password'], $infosMbr['password']);
+    if ($correctPswd && $_POST['pseudo'] === $pseudo) {
         $_SESSION['id'] = $infosMbr['id'];
         $_SESSION['pseudo'] = $pseudo;
-        header('Location: index.php?login=success');
+        $_SESSION['status'] = $infosMbr['status'];
+        if ($infosMbr['status'] === '0') {
+            header('Location: index.php?member');
+        } elseif ($infosMbr['status'] === '1') {
+            header('Location: index.php?admin');
+        }
     } else {
         echo 'echec de l\'identification';
     }
