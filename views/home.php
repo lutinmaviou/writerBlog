@@ -9,6 +9,9 @@ if ($_SESSION) {
     <p>Suivez son évolution au fur et à mesure de mon écriture !</p>
     <img src="public/img/Sans titre.png" alt="book">
 </div>
+<div>
+    <h3>Messages signalés par les lecteurs</h3>
+</div>
 <h3>Derniers chapitres</h3>
 <?php
 while ($data = $req->fetch()) {

@@ -2,22 +2,34 @@
 require_once('models/CommentsMngr.php');
 require_once('models/PostsMngr.php');
 
-function readComment($commentId)
+/*function readComment($commentId)
 {
     $readComment = new Models_CommentsMngr;
     $comment = $readComment->getComment($commentId);
     require('views/commentView.php');
-}
-function createComment($postId, $author, $comment)
+}*/
+function createComment($postId, $author, $comment, $status)
 {
     $commentContent = new Models_CommentsMngr;
-    $req = $commentContent->addComment($postId, $author, $comment);
+    $req = $commentContent->addComment($postId, $author, $comment, $status);
     header('Location: index.php?action=post&id=' . $postId);
 }
-function deleteComment($commentId)
+function deleteComment($postId, $commentId)
 {
     $deleteComment = new Models_CommentsMngr;
 
     $deletedComment = $deleteComment->removeComment($commentId);
-    header('Location: index.php');
+    header('Location: index.php?action=post&id=' . $postId);
+}
+function commentReport($status, $postId, $commentId)
+{
+    $report = new Models_CommentsMngr;
+    $reportedComment = $report->report($status, $commentId);
+    header('Location: index.php?action=post&id=' . $postId);
+}
+function readReportedComments($commentId)
+{
+    $report = new Models_CommentsMngr;
+    $reportedComments = $report->getReportedComments($commentId);
+    header('Location: index.php?admin');
 }

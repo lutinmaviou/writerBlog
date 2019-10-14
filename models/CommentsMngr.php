@@ -8,24 +8,24 @@ class Models_CommentsMngr extends Models_DbConnect
     {
         $req = $this->_dbConnect()->prepare('SELECT id, author, commentContent,
         DATE_FORMAT(commentDate, \'%d/%m/%Y\')
-	    AS commentDateFr FROM comments WHERE post_id = ? ORDER BY commentDate DESC');
+	    AS commentDateFr, reporting FROM comments WHERE post_id = ? ORDER BY commentDate DESC');
         $req->execute(array($postId));
         $comments = $req->fetchAll();
         return $comments;
     }
     public function getComment($commentId)
     {
-        $comment = $this->_dbConnect()->prepare('SELECT id, post_id, author, commentContent,
+        $comment = $this->_dbConnect()->prepare('SELECT id, post_id, author, commentContent
         DATE_FORMAT(commentDate, \'%d/%m/%Y\')
-        AS commentDateFr FROM comments');
+        AS commentDateFr, reporting FROM comments');
         $comment->execute(array($commentId));
         return $comment;
     }
-    public function addComment($postId, $author, $comment)
+    public function addComment($postId, $author, $comment, $status)
     {
-        $req = $this->_dbConnect()->prepare('INSERT INTO comments(post_id, author, commentContent, commentDate)
-        VALUES(?, ?, ?, NOW())');
-        $affectedLines = $req->execute(array($postId, $author, $comment));
+        $req = $this->_dbConnect()->prepare('INSERT INTO comments(post_id, author, commentContent, commentDate, reporting)
+        VALUES(?, ?, ?, NOW(), ?)');
+        $affectedLines = $req->execute(array($postId, $author, $comment, $status));
         return $affectedLines;
     }
     public function removeComment($commentId)
@@ -33,5 +33,19 @@ class Models_CommentsMngr extends Models_DbConnect
         $req = $this->_dbConnect()->prepare("DELETE FROM comments WHERE id = ? ");
         $selectedComment = $req->execute(array($commentId));
         return $selectedComment;
+    }
+    public function report($status, $commentId)
+    {
+        $req = $this->_dbConnect()->prepare("UPDATE comments SET reporting = ? WHERE id = ?");
+        $reportedComment = $req->execute(array($status, $commentId));
+        return $reportedComment;
+    }
+    public function getReportedComments($commentId)
+    {
+        $req = $this->_dbConnect()->prepare('SELECT id, author, commentContent,
+        DATE_FORMAT(commentDate, \'%d/%m/%Y\')
+        AS commentDateFr, reporting FROM comments WHERE reporting = 1 ORDER BY commentDate DESC');
+        $reportedComments = $req->execute($commentId);
+        return $reportedComments;
     }
 }

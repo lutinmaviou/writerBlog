@@ -38,7 +38,7 @@ try {
         } elseif ($_GET['action'] === 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['commentContent'])) {
-                    createComment($_GET['id'], $_POST['author'], $_POST['commentContent']);
+                    createComment($_GET['id'], $_POST['author'], $_POST['commentContent'], 0);
                 } else {
                     echo 'Erreur : les champs ne sont pas tous remplis !';
                 }
@@ -47,7 +47,7 @@ try {
             }
         } elseif ($_GET['action'] === 'deleteComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                deleteComment($_GET['id']);
+                deleteComment($_GET['id'], $_GET['commentId']);
             }
         } elseif ($_GET['action'] === 'login') {
             displayLoginView();
@@ -68,6 +68,8 @@ try {
             }
         } elseif ($_GET['action'] === 'logout') {
             logout();
+        } elseif ($_GET['action'] === 'report') {
+            commentReport(1, $_GET['id'], $_GET['commentId']);
         }
     } else {
         readPosts();

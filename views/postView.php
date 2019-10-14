@@ -24,12 +24,17 @@ if (empty($comments)) {
         ?>
         <h4><?= htmlspecialChars(trim($data['author'])) . ' le ' . $data['commentDateFr'] ?></h4>
         <p><?= nl2br(htmlspecialchars(trim(ucfirst($data['commentContent'])))) ?></p>
-        <span id="report">
-            <a href="#"><i class="far fa-angry"></i> Signaler</a></span>
         <?php
+                if ($data['reporting'] === '1') {
+                    echo 'Ce message a été signalé';
+                } else {
+                    ?>
+            <a href="index.php?action=report&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>"><i class="fas fa-exclamation-triangle"></i> Signaler</a>
+        <?php
+                }
                 if ($_SESSION && $_SESSION['status'] === '1') {
                     ?>
-            <form action="index.php?action=deleteComment&amp;id=<?= $data['id'] ?>" method="POST">
+            <form action="index.php?action=deleteComment&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>" method="POST">
                 <button>Supprimer</button>
             </form>
         <?php
