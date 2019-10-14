@@ -33,7 +33,15 @@
 </head>
 
 <body>
-    <header>
+    <header style="
+    <?php
+    if ($_SESSION && $_SESSION['status'] === '1') {
+        ?>
+        background-color: #29D585;
+        <?php
+        }
+        ?>
+    ">
         <div id="header">
             <a href="index.php" id="logo">
                 <img src="public/img/al_copyrighter.png" alt="plume" id="plume">
@@ -43,7 +51,7 @@
                 <li><a href="index.php"><i class="fas fa-home"></i> Accueil</a></li>
                 <?php
                 if ($_SESSION && $_SESSION['status'] === '1') {
-                    echo '<li><a href=""><i class="fas fa-pen-nib"></i> Créer</a></li>';
+                    echo '<li><a href="index.php?action=newPost"><i class="fas fa-pen-nib"></i> Créer</a></li>';
                 } elseif (!$_SESSION) {
                     echo '<li><a href="index.php?action=login"><i class="fas fa-user"></i> Connexion</a></li>';
                     echo '<li><a href="index.php?action=subscribe"><i class="fas fa-file-signature"></i> S\'inscrire</a></li>';
