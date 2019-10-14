@@ -17,7 +17,6 @@ function createComment($postId, $author, $comment, $status)
 function deleteComment($postId, $commentId)
 {
     $deleteComment = new Models_CommentsMngr;
-
     $deletedComment = $deleteComment->removeComment($commentId);
     header('Location: index.php?action=post&id=' . $postId);
 }
@@ -27,9 +26,10 @@ function commentReport($status, $postId, $commentId)
     $reportedComment = $report->report($status, $commentId);
     header('Location: index.php?action=post&id=' . $postId);
 }
-function readReportedComments($commentId)
+function readReportedComments()
 {
     $report = new Models_CommentsMngr;
-    $reportedComments = $report->getReportedComments($commentId);
-    header('Location: index.php?admin');
+    $reportedComments = $report->getReportedComments();
+    $reportedComments;
+    require('views/reportingView.php');
 }

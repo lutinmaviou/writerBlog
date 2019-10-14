@@ -70,6 +70,8 @@ try {
             logout();
         } elseif ($_GET['action'] === 'report') {
             commentReport(1, $_GET['id'], $_GET['commentId']);
+        } elseif ($_GET['action'] === 'displayReports') {
+            readReportedComments();
         }
     } else {
         readPosts();

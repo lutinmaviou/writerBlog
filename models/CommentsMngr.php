@@ -40,12 +40,11 @@ class Models_CommentsMngr extends Models_DbConnect
         $reportedComment = $req->execute(array($status, $commentId));
         return $reportedComment;
     }
-    public function getReportedComments($commentId)
+    public function getReportedComments()
     {
-        $req = $this->_dbConnect()->prepare('SELECT id, author, commentContent,
+        $reportedComments = $this->_dbConnect()->query('SELECT id, post_id, author, commentContent,
         DATE_FORMAT(commentDate, \'%d/%m/%Y\')
         AS commentDateFr, reporting FROM comments WHERE reporting = 1 ORDER BY commentDate DESC');
-        $reportedComments = $req->execute($commentId);
         return $reportedComments;
     }
 }
