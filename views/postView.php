@@ -1,8 +1,8 @@
-<?php $title = $post['title'];
+<?php $title = strip_tags(html_entity_decode($post['title']));
 ob_start();
 ?>
-<h2><?= htmlspecialChars(trim($post['title'])) ?></h2>
-<p><?= nl2br(htmlspecialchars(trim($post['chapterContent']))) ?></p>
+<h2><?= html_entity_decode(trim($post['title'])) ?></h2>
+<p><?= nl2br(html_entity_decode(trim($post['chapterContent']))) ?></p>
 <?php
 if ($_SESSION && $_SESSION['status'] === '1') {
     ?>
@@ -18,29 +18,30 @@ if ($_SESSION && $_SESSION['status'] === '1') {
 <h3>Commentaires</h3>
 <?php
 if (empty($comments)) {
-    echo '<p>Soyez le premier à laisser un commentaire.';
+    echo '<p>Soyez le premier à laisser un commentaire.</p>';
 } else {
     foreach ($comments as $data) {
         ?>
         <h4><?= htmlspecialChars(trim($data['author'])) . ' le ' . $data['commentDateFr'] ?></h4>
         <p><?= nl2br(htmlspecialchars(trim(ucfirst($data['commentContent'])))) ?></p>
         <?php
-                //if ($_SESSION && $_SESSION['status'] != '1') {
-                if ($data['reporting'] === '1') {
-                    echo 'Ce message a été signalé';
-                } else {
-                    ?>
-            <a href="index.php?action=report&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>"><i class="fas fa-exclamation-triangle"></i> Signaler</a>
+                if ($_SESSION && $_SESSION['status'] != '1') {
+                    if ($data['reporting'] === '1') {
+                        echo 'Ce message a été signalé';
+                    } else {
+                        ?>
+                <a href="index.php?action=report&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>"><i class="fas fa-exclamation-triangle"></i> Signaler</a>
+            <?php
+                        }
+                    }
+                    if ($_SESSION && $_SESSION['status'] === '1') {
+                        ?>
+            <!-- Variable of url "status=1" to be able to choose the redirection with the function deleteComments -->
+            <form action="index.php?action=deleteComment&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>" method="POST">
+                <button>Supprimer</button>
+            </form>
         <?php
                 }
-            }
-            if ($_SESSION && $_SESSION['status'] === '1') {
-                ?>
-        <form action="index.php?action=deleteComment&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>" method="POST">
-            <button>Supprimer</button>
-        </form>
-        <?php
-                //}
                 ?>
 <?php
     }

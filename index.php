@@ -16,7 +16,7 @@ try {
             displayNewPost();
         } elseif ($_GET['action'] === 'addNewPost') {
             if (!empty($_POST['title']) && !empty($_POST['chapterContent'])) {
-                createPost($_POST['title'], $_POST['chapterContent']);
+                createPost(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['chapterContent']));
             } else {
                 throw new Exception('Aucun contenu');
             }
@@ -31,7 +31,7 @@ try {
             } else echo 'Aucun identifiant de post';
         } elseif ($_GET['action'] === 'submitUpdatePost') {
             if (!empty($_POST['title']) && !empty($_POST['chapterContent'])) {
-                updatePost($_POST['title'], $_POST['chapterContent'], $_GET['id']);
+                updatePost(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['chapterContent']), $_GET['id']);
             } else {
                 throw new Exception('Aucun contenu');
             }

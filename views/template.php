@@ -11,23 +11,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-
-    <!--<script src="https://cdn.tiny.cloud/1/ z5cswllgf3io3usrwa5xosso9z5fo9ek0vfp6r7my9cmyx0u /tinymce/5/tinymce.min.js "></script>
+    <script src="tinymce/tinymce.min.js"></script>
     <script type="text/javascript">
-        tinymce.init({
-            selector: '#chapter_content',
-            skin: 'dark',
-            width: 600,
-            height: 300,
-            plugins: [
-                'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-                'save table contextmenu directionality emoticons template paste textcolor'
-            ],
-            content_css: 'css/content.css',
-            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+        tinyMCE.init({
+            selector: ".editor",
+            language: "fr_FR",
+            browser_spellcheck: true,
+            plugins: "emoticons",
+            toolbar1: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+            toolbar2: 'fontselect fontsizeselect | forecolor backcolor emoticons'
         });
-    </script><-->
+    </script>
     <script src="https://kit.fontawesome.com/be774ce90d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="public/css/style.css">
 </head>

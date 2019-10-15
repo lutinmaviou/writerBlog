@@ -18,7 +18,7 @@ function deleteComment($postId, $commentId)
 {
     $deleteComment = new Models_CommentsMngr;
     $deletedComment = $deleteComment->removeComment($commentId);
-    if (isset($_GET['action']) && $_GET['action'] === 'displayReports') {
+    if ($_GET['status'] === '1') {
         header('Location: index.php?action=displayReports');
     } else {
         header('Location: index.php?action=post&id=' . $postId);
