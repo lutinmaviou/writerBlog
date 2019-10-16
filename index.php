@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('vendor/autoload.php');
 require_once('controllers/postCntlr.php');
 require_once('controllers/commentCntrl.php');
 require_once('controllers/memberCntrl.php');

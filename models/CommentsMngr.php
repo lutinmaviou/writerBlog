@@ -1,7 +1,9 @@
 <?php
+
 require_once('models/DbConnect.php');
 
-class Models_CommentsMngr extends Models_DbConnect
+
+class Models_CommentsMngr extends Lmv\writerBlog\Models_DbConnect
 {
 
     public function getComments($postId)

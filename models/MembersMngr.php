@@ -1,7 +1,8 @@
 <?php
 require_once('models/DbConnect.php');
 
-class Models_MembersMngr extends Models_DbConnect
+
+class Models_MembersMngr extends Lmv\writerBlog\Models_DbConnect
 {
     public function newMember($pseudo, $pswd, $status)
     {
