@@ -1,4 +1,4 @@
-<?php $title = 'Le blog de Jean Forteroche';
+<?php $title = 'Connexion';
 ob_start(); ?>
 <img src="public/img/admin.png" alt="user picture">
 <form action="index.php?action=submitLogin" method="POST">

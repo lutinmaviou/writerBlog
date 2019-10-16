@@ -1,0 +1,13 @@
+{
+    "name": "bertrand/writerblog",
+    "description": "A blog for a writer",
+    "require": {
+        "tinymce/tinymce": "^5.0"
+    },
+    "authors": [
+        {
+            "name": "lutinmaviou",
+            "email": "bertrandbou@hotmail.fr"
+        }
+    ]
+}

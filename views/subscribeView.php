@@ -1,4 +1,4 @@
-<?php $title = 'Le blog de Jean Forteroche';
+<?php $title = 'Inscription';
 ob_start(); ?>
 <img src="public/img/user.png" alt="user picture">
 <form action="index.php?action=addMember" method="POST">

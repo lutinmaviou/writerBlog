@@ -31,14 +31,14 @@ while ($data = $req->fetch()) {
     <div id="chapters_view">
         <a href="index.php?action=post&amp;id=<?= $data['id']; ?>">
             <h4>
-                <?php echo html_entity_decode(trim(ucfirst($data['title']))); ?>
+                <?php echo htmlspecialchars_decode(trim(ucfirst($data['title']))); ?>
                 <em><span class="date_font">
         </a> publié le <?php echo $data['postDateFr']; ?></span></em>
         </h4>
 
         <p>
             <?php
-                echo nl2br(html_entity_decode(trim(ucfirst(substr($data['chapterContent'], 0, 200))))) . " ...";
+                echo nl2br(htmlspecialchars_decode(trim(ucfirst(substr($data['chapterContent'], 0, 150))))) . " ...";
                 ?>
             <br />
             <span class="read_more"><a href="index.php?action=post&amp;id=<?= $data['id']; ?>">Lire la suite</a></span>

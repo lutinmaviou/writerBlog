@@ -1,8 +1,8 @@
-<?php $title = strip_tags(html_entity_decode($post['title']));
+<?php $title = strip_tags(htmlspecialchars_decode($post['title']));
 ob_start();
 ?>
-<h2><?= html_entity_decode(trim($post['title'])) ?></h2>
-<p><?= nl2br(html_entity_decode(trim($post['chapterContent']))) ?></p>
+<h2><?= htmlspecialchars_decode(trim($post['title'])) ?></h2>
+<p><?= nl2br(htmlspecialchars_decode(trim($post['chapterContent']))) ?></p>
 <?php
 if ($_SESSION && $_SESSION['status'] === '1') {
     ?>
@@ -62,7 +62,7 @@ if (empty($comments)) {
             </label>
         </div>
         <div id="button">
-            <button>Envoyer</button>
+            <button class="btn btn-primary">Envoyer</button>
         </div>
     </form>
 <?php
