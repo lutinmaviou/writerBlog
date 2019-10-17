@@ -1,7 +1,5 @@
 <?php
-
-require_once('models/DbConnect.php');
-
+require('vendor/autoload.php');
 
 class Models_CommentsMngr extends Lmv\writerBlog\Models_DbConnect
 {

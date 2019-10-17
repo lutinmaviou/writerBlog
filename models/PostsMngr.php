@@ -1,5 +1,7 @@
 <?php
 require('models/DbConnect.php');
+//require('vendor/autoload.php'); //-> ne fonctionne pas, pourquoi?
+
 
 class Models_PostsMngr extends Lmv\writerBlog\Models_DbConnect
 {

@@ -62,7 +62,7 @@ if (empty($comments)) {
             </label>
         </div>
         <div id="button">
-            <button class="btn btn-primary">Envoyer</button>
+            <button class="btn btn-cyan" type="submit">Envoyer</button>
         </div>
     </form>
 <?php

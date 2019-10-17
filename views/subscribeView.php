@@ -5,8 +5,8 @@ ob_start(); ?>
     <label for="pseudo">Pseudo (obligatoire):
         <input type="text" name="pseudo" id="pseudo" required>
     </label>
-    <label for="password">Mot de passe (obligatoire, 6 caractères min):
-        <input type="password" name="password" id="password" minlength="6" required>
+    <label for="password">Mot de passe (obligatoire):
+        <input type="password" name="password" id="password" minlength="6" placeholder=" 6 caractères minimum" required>
     </label>
     <button>Valider</button>
 </form>

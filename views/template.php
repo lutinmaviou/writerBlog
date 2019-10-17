@@ -17,9 +17,8 @@
             selector: ".editor",
             language: "fr_FR",
             browser_spellcheck: true,
-            plugins: "emoticons",
             toolbar1: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
-            toolbar2: 'fontselect fontsizeselect | forecolor backcolor emoticons'
+            toolbar2: 'fontselect | fontsizeselect | forecolor backcolor'
         });
     </script>
     <script src="https://kit.fontawesome.com/be774ce90d.js" crossorigin="anonymous"></script>
@@ -27,35 +26,39 @@
 </head>
 
 <body>
-    <header style="
-    <?php
-    if ($_SESSION && $_SESSION['status'] === '1') {
-        ?>
-        background-color: #29D585;
+
+    <header class="
         <?php
-        }
-        ?>
+        $btp = 'fixed-top d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 text-white border-bottom shadow-sm ';
+        $green = 'bg-success';
+        $blue = 'bg-info';
+        if ($_SESSION && $_SESSION['status'] === '1') {
+            echo $btp . $green;
+        } else {
+            echo $btp . $blue;
+        } ?>
     ">
-        <div id="header">
-            <a href="index.php" id="logo">
-                <img src="public/img/al_copyrighter.png" alt="plume" id="plume">
-                <h1>Jean Forteroche</h1>
-            </a>
-            <ul>
-                <li><a href="index.php"><i class="fas fa-home"></i> Accueil</a></li>
-                <?php
-                if ($_SESSION && $_SESSION['status'] === '1') {
-                    echo '<li><a href="index.php?action=newPost"><i class="fas fa-pen-nib"></i> Créer</a></li>';
-                } elseif (!$_SESSION) {
-                    echo '<li><a href="index.php?action=login"><i class="fas fa-user"></i> Connexion</a></li>';
-                    echo '<li><a href="index.php?action=subscribe"><i class="fas fa-file-signature"></i> S\'inscrire</a></li>';
-                }
-                if ($_SESSION) {
-                    echo '<li><a href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i> Quitter</a></li>';
-                }
-                ?>
-            </ul>
-        </div>
+
+        <h2 class="my-0 mr-md-auto font-weight-normal">
+            <img src="public/img/al_copyrighter.png" alt="plume" id="plume">
+
+            <a class="p-2 text-white" href="index.php">Jean Forteroche</a>
+        </h2>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-3" href="index.php"><i class="fas fa-home"></i> Accueil</a>
+            <?php
+            if ($_SESSION && $_SESSION['status'] === '1') {
+                echo '<a class="p-3" href="index.php?action=newPost"><i class="fas fa-pen-nib"></i> Créer</a>';
+            } elseif (!$_SESSION) {
+                echo '<a class="p-3" href="index.php?action=login"><i class="fas fa-user"></i> Connexion</a>';
+                echo '<a class="p-3" href="index.php?action=subscribe"><i class="fas fa-file-signature"></i> S\'inscrire</a>';
+            }
+            if ($_SESSION) {
+                echo '<a class="p-3" href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i> Quitter</a>';
+            }
+            ?>
+        </nav>
+
     </header>
 
     <!-- Optional JavaScript -->
@@ -65,6 +68,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <?= $content ?>
 </body>
-
 
 </html>
