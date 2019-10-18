@@ -26,39 +26,48 @@
 </head>
 
 <body>
-
-    <header class="
-        <?php
-        $btp = 'fixed-top d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 text-white border-bottom shadow-sm ';
-        $green = 'bg-success';
-        $blue = 'bg-info';
-        if ($_SESSION && $_SESSION['status'] === '1') {
-            echo $btp . $green;
-        } else {
-            echo $btp . $blue;
-        } ?>
-    ">
-
-        <h2 class="my-0 mr-md-auto font-weight-normal">
-            <img src="public/img/al_copyrighter.png" alt="plume" id="plume">
-
-            <a class="p-2 text-white" href="index.php">Jean Forteroche</a>
-        </h2>
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-3" href="index.php"><i class="fas fa-home"></i> Accueil</a>
-            <?php
-            if ($_SESSION && $_SESSION['status'] === '1') {
-                echo '<a class="p-3" href="index.php?action=newPost"><i class="fas fa-pen-nib"></i> Créer</a>';
-            } elseif (!$_SESSION) {
-                echo '<a class="p-3" href="index.php?action=login"><i class="fas fa-user"></i> Connexion</a>';
-                echo '<a class="p-3" href="index.php?action=subscribe"><i class="fas fa-file-signature"></i> S\'inscrire</a>';
-            }
-            if ($_SESSION) {
-                echo '<a class="p-3" href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i> Quitter</a>';
-            }
-            ?>
+    <header>
+        <nav class="<?php
+                    $bs = 'navbar navbar-expand-md ';
+                    $green = 'bg-success';
+                    $blue = 'bg-info';
+                    if ($_SESSION && $_SESSION['status'] === '1') {
+                        echo $bs . $green;
+                    } else {
+                        echo $bs . $blue;
+                    } ?>">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php">
+                    <div class="d-flex" id=" logo">
+                        <img src="public/img/al_copyrighter.png" alt="plume" id="logo">
+                        <h1>Jean Forteroche</h1>
+                    </div>
+                </a>
+                <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto navbar">
+                        <li class="nav-item pr-4">
+                            <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Accueil</a>
+                        </li>
+                        <?php
+                        if ($_SESSION && $_SESSION['status'] === '1') {
+                            echo '<li class="nav-item pr-4">
+                                    <a class="nav-link" href="index.php?action=newPost"><i class="fas fa-pen-nib"></i> Créer</a>
+                                </li>';
+                        } elseif (!$_SESSION) {
+                            echo '<li class="nav-item pr-4"><a class="nav-link" href="index.php?action=login"><i class="fas fa-user"></i> Connexion</a></li>';
+                            echo '<li class="nav-item pr-4"><a class="nav-link" href="index.php?action=subscribe"><i class="fas fa-file-signature"></i> S\'inscrire</a></li>';
+                        }
+                        if ($_SESSION) {
+                            echo '<li class="nav-item pr-4"><a class="nav-link" href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i> Quitter</a></li>';
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
         </nav>
-
     </header>
 
     <!-- Optional JavaScript -->
