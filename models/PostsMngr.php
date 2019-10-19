@@ -15,7 +15,7 @@ class Models_PostsMngr extends Lmv\writerBlog\Models_DbConnect
     public function getPosts($firstOfPage, $postsPerPage)
     {
         $req = $this->_dbConnect()->query('SELECT id, title, chapterContent,
-        DATE_FORMAT(postDate, \'%d/%m/%Y à %H:%i\') AS postDateFr
+        DATE_FORMAT(postDate, \'%d/%m/%Y\') AS postDateFr
         FROM posts 
         ORDER BY postDate 
         DESC LIMIT ' . $firstOfPage . ',' . $postsPerPage . '');

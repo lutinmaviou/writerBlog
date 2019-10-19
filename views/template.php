@@ -39,12 +39,12 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php">
                     <div class="d-flex" id=" logo">
-                        <img src="public/img/al_copyrighter.png" alt="plume" id="logo">
+                        <img src="public/img/al_copyrighter.png" alt="feather" id="logo">
                         <h1>Jean Forteroche</h1>
                     </div>
                 </a>
-                <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="fas fa-bars fa-2x hbgr"></i></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto navbar">

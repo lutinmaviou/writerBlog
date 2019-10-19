@@ -1,3 +1,10 @@
+/*************** GENERAL ***************/
+body {
+    color: rgb(36, 36, 36);
+}
+
+/*************** NAVBAR ***************/
+
 h1 {
     font-size: 1.5em;
     margin-left: 1vw;
@@ -8,10 +15,45 @@ a {
     color: white;
 }
 
+a:hover {
+    color: white;
+}
+
 .navbar li:hover a {
     color: rgb(36, 36, 36);
 }
 
-a:hover {
+.hbgr {
     color: white;
+}
+
+/*************** HOME PAGE ***************/
+
+.bookCont {
+    line-height: 2.5em;
+}
+
+#lastChapters {
+    margin-bottom: 10vh;
+}
+
+#articles a {
+    color: rgb(36, 36, 36);
+}
+
+.col-md-3 {
+    padding: 0;
+}
+
+h4 {
+    margin-bottom: -0.5em;
+}
+
+#publicationDate {
+    margin-bottom: 0;
+}
+
+.card-header,
+.card-footer {
+    background-color: #77B5FE;
 }
