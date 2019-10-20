@@ -16,6 +16,8 @@ function readPosts()
             $currentPage = $nbPages;
         } else {
             $currentPage = $_GET['page'];
+            $previousPage = $currentPage - 1;
+            $nextPage = $currentPage + 1;
         }
     } else {
         $currentPage = 1;

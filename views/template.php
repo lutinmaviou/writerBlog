@@ -37,7 +37,7 @@
                         echo $bs . $blue;
                     } ?>">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="index.php?page=1">
                     <div class="d-flex" id=" logo">
                         <img src="public/img/al_copyrighter.png" alt="feather" id="logo">
                         <h1>Jean Forteroche</h1>
@@ -49,7 +49,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto navbar">
                         <li class="nav-item pr-4">
-                            <a class="nav-link" href="index.php"><i class="fas fa-home"></i> Accueil</a>
+                            <a class="nav-link" href="index.php?page=1"><i class="fas fa-home"></i> Accueil</a>
                         </li>
                         <?php
                         if ($_SESSION && $_SESSION['status'] === '1') {
@@ -69,7 +69,8 @@
             </div>
         </nav>
     </header>
-
+    <?php
+    ?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

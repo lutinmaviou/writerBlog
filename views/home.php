@@ -1,9 +1,10 @@
 <?php $title = 'Le blog de Jean Forteroche';
 ob_start();
 if ($_SESSION) {
-    echo 'Bonjour ' . $_SESSION['pseudo'];
+    echo '<p class="pt-3 pl-3 font-weight-bold">Bonjour ' . $_SESSION['pseudo'] . ' !</p>';
 }
 ?>
+
 <div class="container text-center my-5 py-5 bg-light" id="bookCont">
     <h2>Mon dernier roman en ligne</h2>
     <p>Suivez son évolution au fur et à mesure de mon écriture !</p>
@@ -22,53 +23,77 @@ if ($_SESSION && $_SESSION['status'] === '1') {
 <?php
 }
 ?>
-<h2 class="text-center" id="lastChapters">Derniers chapitres</h2>
+<section>
+    <h2 class="text-center" id="lastChapters">Derniers chapitres</h2>
 
-<div class="container" id="articles">
-    <div class="row justify-content-around">
+    <div class="container" id="articles">
+        <div class="row justify-content-around">
 
-        <?php
-        while ($data = $req->fetch()) {
+            <?php
+            while ($data = $req->fetch()) {
+                ?>
+                <article class="col-md-3 mb-5 card shadow-sm bg-white rounded">
+                    <div class="card-header">
+                        <a href="index.php?action=post&amp;id=<?= $data['id']; ?>">
+                            <h4 class="text-center">
+                                <?php echo htmlspecialchars_decode(trim($data['title'])); ?>
+                            </h4>
+                        </a>
+                    </div>
+                    <div class="card-body text-justify bg-light">
+                        <?php
+                            echo nl2br(htmlspecialchars_decode(trim(substr($data['chapterContent'], 0, 150)))) . " ...";
+                            ?>
+                        <p><a href="index.php?action=post&amp;id=<?= $data['id']; ?>" class="text-primary">Lire la suite</a></p>
+                    </div>
+                    <div class="card-footer text-dark">
+                        <em>
+                            <p class="text-center" id="publicationDate">publié le <?php echo $data['postDateFr']; ?></p>
+                        </em>
+                    </div>
+                </article>
+            <?php
+            }
             ?>
-            <article class="col-md-3 mb-5 card shadow-sm bg-white rounded">
-                <div class="card-header">
-                    <a href="index.php?action=post&amp;id=<?= $data['id']; ?>">
-                        <h4 class="text-center">
-                            <?php echo htmlspecialchars_decode(trim($data['title'])); ?>
-                        </h4>
-                    </a>
-                </div>
-                <div class="card-body text-justify bg-light">
-                    <?php
-                        echo nl2br(htmlspecialchars_decode(trim(substr($data['chapterContent'], 0, 150)))) . " ...";
-                        ?>
-                    <p><a href="index.php?action=post&amp;id=<?= $data['id']; ?>" class="text-primary">Lire la suite</a></p>
-                </div>
-                <div class="card-footer text-dark">
-                    <em>
-                        <p class="text-center" id="publicationDate">publié le <?php echo $data['postDateFr']; ?></p>
-                    </em>
-                </div>
-            </article>
-        <?php
-        }
-        ?>
+        </div>
     </div>
-</div>
+</section>
 
-<h5>Pagination</h5>
-
+<section>
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <li class="page-item <?php
+                                    if ($currentPage <= 1) {
+                                        ?>disabled<?php
+                                                    } ?>">
+                <a class="page-link" href="index.php?page=<?= $previousPage ?>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <?php
+            for ($i = 1; $i <= $nbPages; $i++) {
+                ?>
+                <li class="page-item">
+                    <a class="page-link" href="index.php?page=<?= $i ?>"><?= $i ?></a>
+                </li>
+            <?php
+            }
+            ?>
+            <li class="page-item <?php
+                                    if ($currentPage >= $nbPages) {
+                                        ?>disabled<?php
+                                                    } ?>">
+                <a class="page-link" href="index.php?page=<?= $nextPage ?>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</section>
 <?php
-for ($i = 1; $i <= $nbPages; $i++) {
-    if ($i === $currentPage) {
-        echo $i . ' - ';
-    } else {
-        echo '<a href="index.php?page=' . $i . '"> ' . $i . ' - </a> ';
-    }
-}
-echo '<br />' . $currentPage;
-echo '<br />' . $nbPosts;
-echo '<br />' . $nbPages;
+
 $req->closeCursor();
 $content = ob_get_clean();
 require('views/template.php');

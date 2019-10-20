@@ -1,6 +1,7 @@
 /*************** GENERAL ***************/
 body {
     color: rgb(36, 36, 36);
+    font-family: 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /*************** NAVBAR ***************/
@@ -56,4 +57,18 @@ h4 {
 .card-header,
 .card-footer {
     background-color: #77B5FE;
+}
+
+/*************** FORMS ***************/
+
+form {
+    background-color: rgb(201, 201, 201);
+}
+
+form a {
+    color: rgb(36, 36, 36);
+}
+
+form:hover a {
+    text-decoration: none;
 }

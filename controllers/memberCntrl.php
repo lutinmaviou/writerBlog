@@ -17,8 +17,9 @@ function addMember($pseudo, $pswd, $status)
     $infosMbr = $newMember->getMemberInfos($pseudo);
     $_SESSION['id'] = $infosMbr['id'];
     $_SESSION['pseudo'] = $pseudo;
+    $_SESSION['status'] = $infosMbr['status'];
 
-    header('Location: index.php');
+    header('Location: index.php?member&page=1');
 }
 function submitLogin($pseudo)
 {
@@ -30,9 +31,9 @@ function submitLogin($pseudo)
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['status'] = $infosMbr['status'];
         if ($infosMbr['status'] === '0') {
-            header('Location: index.php?member');
+            header('Location: index.php?member&page=1');
         } elseif ($infosMbr['status'] === '1') {
-            header('Location: index.php?admin');
+            header('Location: index.php?admin&page=1');
         }
     } else {
         echo 'echec de l\'identification';
@@ -42,5 +43,5 @@ function logout()
 {
     $_SESSION = [];
     session_destroy();
-    header('Location: index.php');
+    header('Location: index.php?page=1');
 }
