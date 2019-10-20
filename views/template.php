@@ -28,7 +28,7 @@
 <body>
     <header>
         <nav class="<?php
-                    $bs = 'navbar navbar-expand-md ';
+                    $bs = 'navbar navbar-expand-lg ';
                     $green = 'bg-success';
                     $blue = 'bg-info';
                     if ($_SESSION && $_SESSION['status'] === '1') {
@@ -43,8 +43,8 @@
                         <h1>Jean Forteroche</h1>
                     </div>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span><i class="fas fa-bars fa-2x hbgr"></i></span>
+                <button class="navbar-toggler border border-white p-1 mx-n1 mr-sm-4 rounded hbgr" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="fas fa-bars"></i></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto navbar">
