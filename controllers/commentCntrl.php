@@ -2,12 +2,6 @@
 require_once('models/CommentsMngr.php');
 require_once('models/PostsMngr.php');
 
-/*function readComment($commentId)
-{
-    $readComment = new Models_CommentsMngr;
-    $comment = $readComment->getComment($commentId);
-    require('views/commentView.php');
-}*/
 function createComment($postId, $author, $comment, $status)
 {
     $commentContent = new Models_CommentsMngr;

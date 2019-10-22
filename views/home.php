@@ -34,15 +34,15 @@ if ($_SESSION && $_SESSION['status'] === '1') {
                 ?>
                 <article class="col-md-3 mb-5 card shadow-sm bg-white rounded">
                     <div class="card-header">
-                        <a href="index.php?action=post&amp;id=<?= $data['id']; ?>">
-                            <h4 class="text-center">
-                                <?php echo htmlspecialchars_decode(trim($data['title'])); ?>
-                            </h4>
-                        </a>
+                        <h4 class="text-center">
+                            <a href="index.php?action=post&amp;id=<?= $data['id']; ?>">
+                                <?php echo htmlspecialchars(ucfirst(trim($data['title']))); ?>
+                            </a>
+                        </h4>
                     </div>
                     <div class="card-body text-justify bg-light">
                         <?php
-                            echo nl2br(htmlspecialchars_decode(trim(substr($data['chapterContent'], 0, 150)))) . " ...";
+                            echo substr($data['chapterContent'], 0, 150) . " ...";
                             ?>
                         <p><a href="index.php?action=post&amp;id=<?= $data['id']; ?>" class="text-primary">Lire la suite</a></p>
                     </div>

@@ -51,7 +51,7 @@ function createPost($title, $chapterContent)
 {
     $addPost = new Models_PostsMngr;
     $newPost = $addPost->addPost($title, $chapterContent);
-    header('Location: index.php');
+    header('Location: index.php?page=1');
 }
 function displayUpdatePost()
 {
@@ -64,11 +64,11 @@ function updatePost($title, $chapterContent, $postId)
     $updatePost = new Models_PostsMngr;
     $postId = $_GET['id'];
     $modifyPost = $updatePost->changePost($title, $chapterContent, $postId);
-    header('Location: index.php');
+    header('Location: index.php?page=1');
 }
 function deletePost($postId)
 {
     $deletePost = new Models_PostsMngr;
     $selectedPost = $deletePost->removePost($postId);
-    header('Location: index.php');
+    header('Location: index.php?page=1');
 }

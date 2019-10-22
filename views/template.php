@@ -14,11 +14,16 @@
     <script src="public/js/tinymce/tinymce.min.js"></script>
     <script type="text/javascript">
         tinyMCE.init({
-            selector: ".editor",
+            selector: "textarea",
             language: "fr_FR",
+            protect: [
+                /\<\/?(script|script)\>/g,
+                /\<xsl\:[^>]+\>/g,
+                /<\?php.*?\?>/g
+            ],
             browser_spellcheck: true,
             toolbar1: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
-            toolbar2: 'fontselect | fontsizeselect | forecolor backcolor'
+            toolbar2: 'fontselect | fontsizeselect | forecolor'
         });
     </script>
     <script src="https://kit.fontawesome.com/be774ce90d.js" crossorigin="anonymous"></script>
