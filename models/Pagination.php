@@ -1,6 +1,4 @@
 <?php
-require('vendor/autoload.php');
-
 
 class Models_Pagination extends Lmv\writerBlog\Models_DbConnect
 {

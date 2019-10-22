@@ -3,7 +3,6 @@ require_once('models/PostsMngr.php');
 require_once('models/CommentsMngr.php');
 require_once('models/Pagination.php');
 
-
 function readPosts()
 {
     $listPosts = new Models_PostsMngr;
