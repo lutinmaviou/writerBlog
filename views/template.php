@@ -16,13 +16,14 @@
         tinyMCE.init({
             selector: "textarea",
             language: "fr_FR",
+            //Protect scripts, xsl, and php
             protect: [
                 /\<\/?(script|script)\>/g,
                 /\<xsl\:[^>]+\>/g,
                 /<\?php.*?\?>/g
             ],
-            browser_spellcheck: true,
-            toolbar1: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+            browser_spellcheck: true, // Correcteur d'orthographe
+            toolbar1: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify',
             toolbar2: 'fontselect | fontsizeselect | forecolor'
         });
     </script>
