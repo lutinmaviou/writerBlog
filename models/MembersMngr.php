@@ -1,6 +1,8 @@
 <?php
 
-class Models_MembersMngr extends Lmv\writerBlog\Models_DbConnect
+use Lmv\writerBlog\Models\Models_DbConnect;
+
+class Models_MembersMngr extends Models_DbConnect
 {
     public function newMember($pseudo, $pswd, $status)
     {

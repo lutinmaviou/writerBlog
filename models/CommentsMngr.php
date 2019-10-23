@@ -1,7 +1,9 @@
 <?php
-class Models_CommentsMngr extends Lmv\writerBlog\Models_DbConnect
-{
 
+use Lmv\writerBlog\Models\Models_DbConnect;
+
+class Models_CommentsMngr extends Models_DbConnect
+{
     public function getComments($postId)
     {
         $req = $this->_dbConnect()->prepare('SELECT id, author, commentContent,

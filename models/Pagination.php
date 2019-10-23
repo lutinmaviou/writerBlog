@@ -1,6 +1,8 @@
 <?php
 
-class Models_Pagination extends Lmv\writerBlog\Models_DbConnect
+use Lmv\writerBlog\Models\Models_DbConnect;
+
+class Models_Pagination extends Models_DbConnect
 {
     public function getPostsPagination()
     {

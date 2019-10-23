@@ -1,7 +1,9 @@
 <?php
 require('models/DbConnect.php');
 
-class Models_PostsMngr extends Lmv\writerBlog\Models_DbConnect
+use Lmv\writerBlog\Models\Models_DbConnect;
+
+class Models_PostsMngr extends Models_DbConnect
 {
     public function addPost($title, $chapterContent)
     {

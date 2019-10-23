@@ -1,6 +1,7 @@
 <?php
 require_once('models/MembersMngr.php');
 
+
 function displayLoginView()
 {
     require('views/loginView.php');

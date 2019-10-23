@@ -2,6 +2,8 @@
 require_once('models/CommentsMngr.php');
 require_once('models/PostsMngr.php');
 
+use Lmv\writerBlog\Models_CommentsMngr;
+
 function createComment($postId, $author, $comment, $status)
 {
     $commentContent = new Models_CommentsMngr;
