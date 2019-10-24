@@ -29,7 +29,7 @@ ob_start();
             <h3 class="text-center mb-4 bg-light p-2">Commentaires</h3>
             <?php
             if (empty($comments)) {
-                echo '<p>Soyez le premier à laisser un commentaire.</p>';
+                echo '<p class="text-primary">Soyez le premier à laisser un commentaire.</p>';
             } else {
                 foreach ($comments as $data) {
                     ?>
@@ -73,7 +73,7 @@ ob_start();
         <?php if ($_SESSION) {
             ?>
             <form class="col-md-6 text-center mx-auto border border-light rounded-lg p-5 mt-4" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="POST">
-                <p class="h4 pb-4">Laisser un commentaire</p>
+                <p class="h4 pb-4">Commenter</p>
                 <div class="form-row mb-4">
                     <div class="col">
                         <label for="author">

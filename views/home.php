@@ -3,7 +3,7 @@ $title = 'Le blog de Jean Forteroche';
 ob_start();
 // Say hello to connected user
 if ($_SESSION) {
-    echo '<p class="pt-3 pl-3 font-weight-bold">Bonjour ' . $_SESSION['pseudo'] . ' !</p>';
+    echo '<p class="pt-3 pl-3 text-primary font-weight-bold">Bonjour ' . $_SESSION['pseudo'] . ' !</p>';
 }
 ?>
 <!-- Last book presentation -->
