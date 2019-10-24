@@ -1,6 +1,7 @@
 <?php
 require_once('models/MembersMngr.php');
 
+use Lmv\WriterBlog\Models\Models_MembersMngr;
 
 function displayLoginView()
 {

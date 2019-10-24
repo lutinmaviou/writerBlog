@@ -1,7 +1,10 @@
 <?php
+
+namespace Lmv\WriterBlog\Models;
+
 require('models/DbConnect.php');
 
-use Lmv\writerBlog\Models\Models_DbConnect;
+use Lmv\WriterBlog\Models\Models_DbConnect;
 
 class Models_PostsMngr extends Models_DbConnect
 {

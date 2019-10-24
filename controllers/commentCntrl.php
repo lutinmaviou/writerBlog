@@ -1,8 +1,8 @@
 <?php
-require_once('models/CommentsMngr.php');
-require_once('models/PostsMngr.php');
+//require_once('models/CommentsMngr.php');
+//require_once('models/PostsMngr.php');
 
-use Lmv\writerBlog\Models_CommentsMngr;
+use Lmv\writerBlog\Models\Models_CommentsMngr;
 
 function createComment($postId, $author, $comment, $status)
 {

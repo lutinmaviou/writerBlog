@@ -1,6 +1,6 @@
 <?php
 
-namespace Lmv\writerBlog\Models;
+namespace Lmv\WriterBlog\Models;
 
 class Models_DbConnect
 {

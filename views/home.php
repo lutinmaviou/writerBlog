@@ -1,4 +1,5 @@
-<?php $title = 'Le blog de Jean Forteroche';
+<?php
+$title = 'Le blog de Jean Forteroche';
 ob_start();
 if ($_SESSION) {
     echo '<p class="pt-3 pl-3 font-weight-bold">Bonjour ' . $_SESSION['pseudo'] . ' !</p>';

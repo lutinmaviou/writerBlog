@@ -1,6 +1,8 @@
 <?php
 
-use Lmv\writerBlog\Models\Models_DbConnect;
+namespace Lmv\WriterBlog\Models;
+
+use Lmv\WriterBlog\Models\Models_DbConnect;
 
 class Models_CommentsMngr extends Models_DbConnect
 {

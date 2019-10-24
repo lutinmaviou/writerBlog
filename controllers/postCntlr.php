@@ -1,7 +1,16 @@
 <?php
-require_once('models/PostsMngr.php');
-require_once('models/CommentsMngr.php');
-require_once('models/Pagination.php');
+require('models/PostsMngr.php');
+require('models/CommentsMngr.php');
+require('models/Pagination.php');
+
+
+use Lmv\WriterBlog\Models\Models_PostsMngr;
+use Lmv\WriterBlog\Models\Models_Pagination;
+use Lmv\WriterBlog\Models\Models_CommentsMngr;
+//use Lmv\WriterBlog\Models\Autoloader;
+
+//require_once 'Autoloader.php';
+//Autoloader::register();
 
 function readPosts()
 {
