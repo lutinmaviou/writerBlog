@@ -6,7 +6,7 @@ ob_start();
         <input type="text" name='title' class="editor" id='title'>
     </label>
     <label for="chapterContent">Contenu :
-        <textarea name="chapterContent" class="editor" id="chapterContent" cols="30" rows="10"></textarea>
+        <textarea name="chapterContent" class="tinyMce" id="chapterContent" cols="30" rows="10"></textarea>
     </label>
     <button>Valider</button>
 </form>

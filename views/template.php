@@ -14,7 +14,7 @@
     <script src="public/js/tinymce/tinymce.min.js"></script>
     <script type="text/javascript">
         tinyMCE.init({
-            selector: "textarea",
+            selector: "textarea.tinyMce",
             language: "fr_FR",
             //Protect scripts, xsl, and php
             protect: [

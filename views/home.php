@@ -8,7 +8,7 @@ if ($_SESSION) {
 ?>
 <!-- Last book presentation -->
 <section>
-    <div class="container text-center my-5 py-5 bg-light" id="bookCont">
+    <div class="container text-center my-5 py-5 bg-light line-height">
         <h2>Mon dernier roman en ligne</h2>
         <p>Suivez son évolution au fur et à mesure de mon écriture !</p>
         <img class="mt-5" src="public/img/Sans titre.png" alt="book">
@@ -29,7 +29,7 @@ if ($_SESSION && $_SESSION['status'] === '1') {
 ?>
 <!-- Display last 3 chapters -->
 <section>
-    <h2 class="text-center" id="lastChapters">Derniers chapitres</h2>
+    <h2 class="container text-center bg-light p-4" id="lastChapters">Chapitres</h2>
 
     <div class="container" id="articles">
         <div class="row justify-content-around">

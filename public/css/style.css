@@ -12,11 +12,11 @@ h1 {
     margin-top: 2vh;
 }
 
-a {
+header a {
     color: white;
 }
 
-a:hover {
+header:hover a {
     color: white;
 }
 
@@ -32,7 +32,7 @@ a:hover {
 
 /*************** HOME PAGE ***************/
 
-.bookCont {
+.line-height {
     line-height: 2.5em;
 }
 
