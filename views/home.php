@@ -1,19 +1,22 @@
 <?php
 $title = 'Le blog de Jean Forteroche';
 ob_start();
+// Say hello to connected user
 if ($_SESSION) {
     echo '<p class="pt-3 pl-3 font-weight-bold">Bonjour ' . $_SESSION['pseudo'] . ' !</p>';
 }
 ?>
+<!-- Last book presentation -->
+<section>
+    <div class="container text-center my-5 py-5 bg-light" id="bookCont">
+        <h2>Mon dernier roman en ligne</h2>
+        <p>Suivez son évolution au fur et à mesure de mon écriture !</p>
+        <img class="mt-5" src="public/img/Sans titre.png" alt="book">
+    </div>
+</section>
 
-<div class="container text-center my-5 py-5 bg-light" id="bookCont">
-    <h2>Mon dernier roman en ligne</h2>
-    <p>Suivez son évolution au fur et à mesure de mon écriture !</p>
-    <img class="mt-5" src="public/img/Sans titre.png" alt="book">
-</div>
-
+<!-- If admin connected, display reported messages -->
 <?php
-
 if ($_SESSION && $_SESSION['status'] === '1') {
     ?>
     <div>
@@ -24,6 +27,7 @@ if ($_SESSION && $_SESSION['status'] === '1') {
 <?php
 }
 ?>
+<!-- Display last 3 chapters -->
 <section>
     <h2 class="text-center" id="lastChapters">Derniers chapitres</h2>
 
@@ -59,7 +63,7 @@ if ($_SESSION && $_SESSION['status'] === '1') {
         </div>
     </div>
 </section>
-
+<!-- Pagination -->
 <section>
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
