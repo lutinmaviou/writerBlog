@@ -91,7 +91,7 @@ ob_start();
         <?php
         } else {
             ?>
-            <div class="col-md-6 mx-auto text-center mt-4 mb-5">
+            <div class="col-md-6 mx-auto text-center mt-4 mb-5 border pt-2 bg-light">
                 <p class="mb-n1">Vous devez être membre pour pouvoir laisser un commentaire ou signaler un message</p>
                 <p></p>
                 <p><a href="index.php?action=subscribe">S'inscrire <i class="fas fa-sign-in-alt"></i></a></p>

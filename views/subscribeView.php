@@ -13,7 +13,7 @@ ob_start(); ?>
                 <div class="col">
                     <!-- Pseudo -->
                     <label for="pseudo">
-                        <input type="text" id="pseudo" name="pseudo" class="form-control mr-lg-5" placeholder="Pseudo (obligatoire)" required>
+                        <input type="text" id="pseudo" name="pseudo" class="form-control mr-lg-5" placeholder="Pseudo" required>
                     </label>
                 </div>
             </div>
