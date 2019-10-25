@@ -2,34 +2,40 @@
 ob_start();
 ?>
 <!-- Chapter content -->
-<section class="container p-5 mt-3">
-    <div class="row">
-        <div class="col-md-8 col-sm-6 text-justify mx-auto">
+<section class="container mt-5">
+    <div class="mx-auto">
+        <div class="col-md-8 col-xs-6 text-justify mx-auto border p-3">
             <h2 class="text-center mb-5"><?= htmlspecialchars_decode(trim($post['title'])) ?></h2>
             <p><?= nl2br(htmlspecialchars_decode(trim($post['chapterContent']))) ?></p>
             <?php
             if ($_SESSION && $_SESSION['status'] === '1') {
                 ?>
-                <form action="index.php?action=updatePost&amp;id=<?= $post['id'] ?>" method="POST">
-                    <button>Modifier</button>
-                </form>
-                <form action="index.php?action=deletePost&amp;id=<?= $post['id'] ?>" method="POST">
-                    <button>Supprimer</button>
-                </form>
+                <div class="row justify-content-around px-5 mt-5">
+                    <div class="row mb-3">
+                        <form action="index.php?action=updatePost&amp;id=<?= $post['id'] ?>" method="POST">
+                            <button class="btn btn-success">Modifier</button>
+                        </form>
+                    </div>
+                    <div>
+                        <form action="index.php?action=deletePost&amp;id=<?= $post['id'] ?>" method="POST">
+                            <button class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </div>
+                </div>
             <?php
             }
             ?>
         </div>
     </div>
 </section>
-<!-- Comments section -->
+<!-- Display Comments section -->
 <section class="container">
     <div class="row">
         <div class="col-md-8 col-sm-6 text-justify mx-auto line-height">
-            <h3 class="text-center mb-4 bg-light p-2">Commentaires</h3>
+            <h3 class="text-center mb-4 mt-4  bg-light p-2">Commentaires</h3>
             <?php
             if (empty($comments)) {
-                echo '<p class="text-primary">Soyez le premier à laisser un commentaire.</p>';
+                echo '<p class="text-primary text-center">Soyez le premier à laisser un commentaire.</p>';
             } else {
                 foreach ($comments as $data) {
                     ?>
@@ -49,14 +55,16 @@ ob_start();
                                     }
                                 }
                                 ?>
+                        <div class="px-5 mt-3">
+                            <form class="mt-n1 mb-2 mb-n2 text-right btn-sm" action="index.php?action=deleteComment&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>" method="POST">
+                                <button class="btn btn-danger">Supprimer</button>
+                            </form>
+                        </div>
                     </div>
                     <?php
                             if ($_SESSION && $_SESSION['status'] === '1') {
                                 ?>
-                        <!-- Variable of url "status=1" to be able to choose the redirection with the function deleteComments -->
-                        <form action="index.php?action=deleteComment&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>" method="POST">
-                            <button>Supprimer</button>
-                        </form>
+
                     <?php
                             }
                             ?>
@@ -72,7 +80,7 @@ ob_start();
     <div class="row">
         <?php if ($_SESSION) {
             ?>
-            <form class="col-md-6 text-center mx-auto border border-light rounded-lg p-5 mt-4" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="POST">
+            <form class="col-md-6 text-center mx-auto border border-light rounded-lg shadow-sm p-5 mt-4" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="POST">
                 <p class="h4 pb-4">Commenter</p>
                 <div class="form-row mb-4">
                     <div class="col">

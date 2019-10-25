@@ -61,17 +61,21 @@ h4 {
     background-color: #77B5FE;
 }
 
+.report {
+    background-color: rgb(250, 194, 194);
+}
+
 /*************** FORMS ***************/
 
-form {
+.form {
     background-color: rgb(201, 201, 201);
 }
 
-form a {
+.form a {
     color: rgb(36, 36, 36);
 }
 
-form:hover a {
+.form:hover a {
     text-decoration: none;
 }
 

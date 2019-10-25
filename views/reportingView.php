@@ -1,17 +1,29 @@
 <?php $title = 'Messages signalés';
 ob_start();
 ?>
-<h2>Derniers messages signalés</h2>
+<section class="container">
+    <div class="row">
+        <div class="col-md-8 col-sm-6 text-justify mx-auto line-height">
+            <h3 class="text-center mt-5 mb-4 bg-light p-2">Messages signalés</h3>
+            <?php
+            foreach ($reportedComments as $data) {
+                ?>
+                <div class="border line-height-5 p-3">
+                    <h5><?= htmlspecialChars(trim($data['author'])) . ' le ' . $data['commentDateFr'] ?></h5>
+                    <p class="mb-n2"><?= nl2br(htmlspecialchars(trim(ucfirst($data['commentContent'])))) ?></p>
+                    <form class="mb-n2 text-right bg-white btn-sm" action="index.php?action=deleteComment&amp;id= <?= $data['post_id'] ?> &amp;commentId= <?= $data['id'] ?>&amp;status=1" method="POST">
+                        <button class="btn btn-danger">Supprimer</button>
+                    </form>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+</section>
 <?php
-foreach ($reportedComments as $data) {
-    ?>
-    <h4><?= htmlspecialChars(trim($data['author'])) . ' le ' . $data['commentDateFr'] ?></h4>
-    <p><?= nl2br(htmlspecialchars(trim(ucfirst($data['commentContent'])))) ?></p>
-    <form action="index.php?action=deleteComment&amp;id= <?= $data['post_id'] ?> &amp;commentId= <?= $data['id'] ?>&amp;status=1" method="POST">
-        <button>Supprimer</button>
-    </form>
-<?php
-}
 $content = ob_get_clean();
 require('template.php');
 ?>
+
+<!--
+index.php?action=deleteComment&amp;id= <?= $data['post_id'] ?> &amp;commentId= <?= $data['id'] ?>&amp;status=1 -->

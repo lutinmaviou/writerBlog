@@ -5,6 +5,18 @@ ob_start();
 if ($_SESSION) {
     echo '<p class="pt-3 pl-3 text-primary font-weight-bold">Bonjour ' . $_SESSION['pseudo'] . ' !</p>';
 }
+// If admin connected, display reported messages
+if ($_SESSION && $_SESSION['status'] === '1') {
+    ?>
+    <div class="text-center">
+        <p>
+            <a class="text-danger font-weight-bold p-2 report rounded" href="index.php?action=displayReports">
+                Messages signalés par les lecteurs ! <i class="fas fa-sign-in-alt"></i>
+            </a>
+        </p>
+    </div>
+<?php
+}
 ?>
 <!-- Last book presentation -->
 <section>
@@ -14,19 +26,6 @@ if ($_SESSION) {
         <img class="mt-5" src="public/img/Sans titre.png" alt="book">
     </div>
 </section>
-
-<!-- If admin connected, display reported messages -->
-<?php
-if ($_SESSION && $_SESSION['status'] === '1') {
-    ?>
-    <div>
-        <a href="index.php?action=displayReports">
-            <h3>Messages signalés par les lecteurs</h3>
-        </a>
-    </div>
-<?php
-}
-?>
 <!-- Display last 3 chapters -->
 <section>
     <h2 class="container text-center bg-light p-4" id="lastChapters">Chapitres</h2>
