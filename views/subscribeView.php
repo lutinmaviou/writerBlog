@@ -7,7 +7,7 @@ ob_start(); ?>
 
     <!-- Default form register -->
     <div class="row">
-        <form class="col-md-6 text-center mx-auto border border-light rounded-lg p-5 mt-4" action="index.php?action=addMember" method="POST">
+        <form class="col-md-6 text-center mx-auto bg-light shadow border border-light rounded-lg p-5 mt-4" action="index.php?action=addMember" method="POST">
             <p class="h4 mb-4">Inscription</p>
             <div class="form-row mb-4">
                 <div class="col">

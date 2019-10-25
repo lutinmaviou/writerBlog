@@ -4,7 +4,7 @@ ob_start();
 <section class="container">
     <div class="row">
         <div class="col-md-8 col-sm-6 text-justify mx-auto line-height">
-            <h3 class="text-center mt-5 mb-4 bg-light p-2">Messages signalés</h3>
+            <h3 class="text-center mt-5 mb-4 bg-light rounded p-2">Messages signalés</h3>
             <?php
             foreach ($reportedComments as $data) {
                 ?>
