@@ -2,8 +2,9 @@
 ob_start();
 ?>
 <section class="container">
+    <h2 class="text-center mt-5">Nouveau chapitre</h2>
     <div class="row">
-        <form class="text-center mx-auto border border-light rounded-lg p-5 mt-4" action="index.php?action=addNewPost" method="POST">
+        <form class="col-lg-10 text-center mx-auto bg-light border border-light rounded-lg p-5 mt-4 shadow" action="index.php?action=addNewPost" method="POST">
             <div class="form-row mb-4">
                 <div class="mx-auto">
                     <label for="title">
@@ -11,8 +12,8 @@ ob_start();
                     </label>
                 </div>
             </div>
-            <label for="chapterContent">
-                <textarea name="chapterContent" class="tinyMce" id="chapterContent"></textarea>
+            <label for="chapterContent" class="col-lg-12">
+                <textarea name="chapterContent" class="tinyMce" id="chapterContent" rows="10"></textarea>
             </label>
             <small class="form-text text-muted mb-4">
             </small>

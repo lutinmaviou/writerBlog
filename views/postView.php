@@ -4,7 +4,7 @@ ob_start();
 <!-- Chapter content -->
 <section class="container mt-5">
     <div class="mx-auto">
-        <div class="col-md-8 col-xs-6 text-justify mx-auto border p-3">
+        <div class="col-md-8 col-xs-6 text-justify mx-auto border p-4">
             <h2 class="text-center mb-5"><?= htmlspecialchars_decode(trim($post['title'])) ?></h2>
             <p><?= nl2br(htmlspecialchars_decode(trim($post['chapterContent']))) ?></p>
             <?php
@@ -75,7 +75,7 @@ ob_start();
     <div class="row">
         <?php if ($_SESSION) {
             ?>
-            <form class="col-md-6 text-center mx-auto bg-light border border-light rounded-lg shadow-sm p-5 mt-4" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="POST">
+            <form class="col-md-6 text-center mx-auto bg-light border border-light rounded-lg shadow p-5 mt-4" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="POST">
                 <p class="h4 pb-4">Commenter</p>
                 <div class="form-row mb-4">
                     <div class="col">
