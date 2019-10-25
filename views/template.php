@@ -34,7 +34,7 @@
 <body>
     <header>
         <nav class="<?php
-                    $bs = 'navbar navbar-expand-lg ';
+                    $bs = 'navbar navbar-expand-lg shadow-sm ';
                     $green = 'bg-success';
                     $blue = 'bg-info';
                     if ($_SESSION && $_SESSION['status'] === '1') {

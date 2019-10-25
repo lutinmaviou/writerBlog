@@ -51,23 +51,18 @@ ob_start();
                                 <p class="mb-n2 text-right"><a class="text-danger" href="index.php?action=report&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>">
                                         <i class="fas fa-exclamation-triangle"></i> Signaler
                                     </a></p>
-                        <?php
+                            <?php
+                                        }
                                     }
+                                    if ($_SESSION && $_SESSION['status'] === '1') {
+                                        ?>
+                            <form class="text-right" action="index.php?action=deleteComment&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>" method="POST">
+                                <button class="btn btn-sm btn-danger">Supprimer</button>
+                            </form>
+                        <?php
                                 }
                                 ?>
-                        <div class="px-5 mt-3">
-                            <form class="mt-n1 mb-2 mb-n2 text-right btn-sm" action="index.php?action=deleteComment&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>" method="POST">
-                                <button class="btn btn-danger">Supprimer</button>
-                            </form>
-                        </div>
                     </div>
-                    <?php
-                            if ($_SESSION && $_SESSION['status'] === '1') {
-                                ?>
-
-                    <?php
-                            }
-                            ?>
             <?php
                 }
             }
@@ -76,11 +71,11 @@ ob_start();
     </div>
 </section>
 <!-- Post a comment section -->
-<section class="container">
+<section class="container mt-3">
     <div class="row">
         <?php if ($_SESSION) {
             ?>
-            <form class="col-md-6 text-center mx-auto border border-light rounded-lg shadow-sm p-5 mt-4" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="POST">
+            <form class="col-md-6 text-center mx-auto bg-light border border-light rounded-lg shadow-sm p-5 mt-4" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="POST">
                 <p class="h4 pb-4">Commenter</p>
                 <div class="form-row mb-4">
                     <div class="col">
