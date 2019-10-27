@@ -1,7 +1,6 @@
 <?php
-require_once('models/MembersMngr.php');
 
-use Lmv\WriterBlog\Models\Models_MembersMngr;
+use Lmv\WriterBlog\Models\MembersMngr;
 
 function displayLoginView()
 {
@@ -14,7 +13,7 @@ function displaySubscribeView()
 function addMember($pseudo, $pswd, $status)
 {
     $pswd = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $newMember = new  Models_MembersMngr;
+    $newMember = new  MembersMngr;
     $member = $newMember->newMember($pseudo, $pswd, $status);
     $infosMbr = $newMember->getMemberInfos($pseudo);
     $_SESSION['id'] = $infosMbr['id'];
@@ -25,7 +24,7 @@ function addMember($pseudo, $pswd, $status)
 }
 function submitLogin($pseudo)
 {
-    $connect = new Models_MembersMngr;
+    $connect = new MembersMngr;
     $infosMbr = $connect->getMemberInfos($pseudo);
     $correctPswd = password_verify($_POST['password'], $infosMbr['password']);
     if ($correctPswd && $_POST['pseudo'] === $pseudo) {

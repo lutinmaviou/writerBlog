@@ -4,7 +4,7 @@ ob_start();
 <section class="container">
     <div class="row">
         <div class="col-md-8 col-sm-6 text-justify mx-auto line-height">
-            <h3 class="text-center mt-5 mb-4 bg-light rounded p-2">Messages signalés</h3>
+            <h3 class="text-center mt-5 mb-4 bg-sm bg-md rounded p-2">Messages signalés</h3>
             <?php
             foreach ($reportedComments as $data) {
                 ?>
@@ -24,6 +24,3 @@ ob_start();
 $content = ob_get_clean();
 require('template.php');
 ?>
-
-<!--
-index.php?action=deleteComment&amp;id= <?= $data['post_id'] ?> &amp;commentId= <?= $data['id'] ?>&amp;status=1 -->

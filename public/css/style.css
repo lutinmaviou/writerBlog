@@ -4,6 +4,12 @@ body {
     font-family: 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+/* GENERAL BACKGROUND-COLOR */
+
+.bg-md {
+    background-color: rgb(238, 238, 238);
+}
+
 /*************** NAVBAR ***************/
 
 h1 {
@@ -32,10 +38,6 @@ header:hover a {
 
 /*************** HOME PAGE ***************/
 
-.line-height {
-    line-height: 2.5em;
-}
-
 #lastChapters {
     margin-bottom: 10vh;
 }
@@ -63,6 +65,12 @@ h4 {
 
 .report {
     background-color: rgb(250, 194, 194);
+}
+
+/*************** POSTS VIEW PAGE ***************/
+
+#dateTime-sm {
+    font-size: 0.8em;
 }
 
 /*************** FORMS ***************/
@@ -102,5 +110,22 @@ h4 {
 @media screen and (max-width: 992px) {
     .form a {
         color: #0275d8;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .btn-update {
+        margin-bottom: 10px;
+    }
+}
+
+/* Background-color darker for mobiles */
+@media screen and (max-width: 560px) {
+    .bg-sm {
+        background-color: rgb(161, 161, 161);
+    }
+
+    #lastChapters {
+        font-size: 1.3em;
     }
 }

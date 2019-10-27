@@ -11,9 +11,9 @@ ob_start();
             if ($_SESSION && $_SESSION['status'] === '1') {
                 ?>
                 <div class="row justify-content-around px-5 mt-5">
-                    <div class="row mb-3">
+                    <div>
                         <form action="index.php?action=updatePost&amp;id=<?= $post['id'] ?>" method="POST">
-                            <button class="btn btn-success">Modifier</button>
+                            <button class="btn btn-success btn-update">Modifier</button>
                         </form>
                     </div>
                     <div>
@@ -32,7 +32,7 @@ ob_start();
 <section class="container">
     <div class="row">
         <div class="col-md-8 col-sm-6 text-justify mx-auto line-height">
-            <h3 class="text-center mb-4 mt-4  bg-light p-2">Commentaires</h3>
+            <h3 class="text-center mb-4 mt-4  bg-md p-2">Commentaires</h3>
             <?php
             if (empty($comments)) {
                 echo '<p class="text-primary text-center">Soyez le premier à laisser un commentaire.</p>';
@@ -40,7 +40,7 @@ ob_start();
                 foreach ($comments as $data) {
                     ?>
                     <div class="border line-height-5 p-3">
-                        <h5><?= htmlspecialChars(trim($data['author'])) . ' le ' . $data['commentDateFr'] ?></h5>
+                        <h5><?= htmlspecialChars(trim($data['author'])) . ' <em id="dateTime-sm">le ' . $data['commentDateFr'] . '</em>' ?></h5>
                         <p class="mb-n2"><?= nl2br(htmlspecialchars(trim(ucfirst($data['commentContent'])))) ?></p>
                         <?php
                                 if ($_SESSION && $_SESSION['status'] != '1') {
@@ -75,7 +75,7 @@ ob_start();
     <div class="row">
         <?php if ($_SESSION) {
             ?>
-            <form class="col-md-6 text-center mx-auto bg-light border border-light rounded-lg shadow p-5 mt-4" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="POST">
+            <form class="col-md-6 text-center mx-auto bg-md border border-light rounded-lg shadow p-5 mt-4" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="POST">
                 <p class="h4 pb-4">Commenter</p>
                 <div class="form-row mb-4">
                     <div class="col">
@@ -94,10 +94,12 @@ ob_start();
         <?php
         } else {
             ?>
-            <div class="col-md-6 mx-auto text-center mt-4 mb-5 border pt-2 bg-light">
+            <div class="col-md-6 mx-auto text-center mt-4 mb-5 border pt-2 bg-md">
                 <p class="mb-n1">Vous devez être membre pour pouvoir laisser un commentaire ou signaler un message</p>
-                <p></p>
-                <p><a href="index.php?action=subscribe">S'inscrire <i class="fas fa-sign-in-alt"></i></a></p>
+                <div class="pt-4">
+                    <p><a href="index.php?action=login">Se connecter <i class="fas fa-sign-in-alt"></i></a></p>
+                    <p><a href="index.php?action=subscribe">S'inscrire <i class="fas fa-sign-in-alt"></i></a></p>
+                </div>
             </div>
 
         <?php

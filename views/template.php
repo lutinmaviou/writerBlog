@@ -52,22 +52,22 @@
                 <button class="navbar-toggler border border-white p-1 mx-n1 mr-sm-4 rounded hbgr" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span><i class="fas fa-bars"></i></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto navbar">
-                        <li class="nav-item pr-4">
+                <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+                    <ul class="navbar-nav navbar pl-3">
+                        <li class="nav-item pr-lg-4">
                             <a class="nav-link" href="index.php?page=1"><i class="fas fa-home"></i> Accueil</a>
                         </li>
                         <?php
                         if ($_SESSION && $_SESSION['status'] === '1') {
-                            echo '<li class="nav-item pr-4">
+                            echo '<li class="nav-item pr-lg-4">
                                     <a class="nav-link" href="index.php?action=newPost"><i class="fas fa-pen-nib"></i> Créer</a>
                                 </li>';
                         } elseif (!$_SESSION) {
-                            echo '<li class="nav-item pr-4"><a class="nav-link" href="index.php?action=login"><i class="fas fa-user"></i> Connexion</a></li>';
-                            echo '<li class="nav-item pr-4"><a class="nav-link" href="index.php?action=subscribe"><i class="fas fa-file-signature"></i> S\'inscrire</a></li>';
+                            echo '<li class="nav-item pr-lg-4"><a class="nav-link" href="index.php?action=login"><i class="fas fa-user"></i> Connexion</a></li>';
+                            echo '<li class="nav-item pr-lg-4"><a class="nav-link" href="index.php?action=subscribe"><i class="fas fa-file-signature"></i> S\'inscrire</a></li>';
                         }
                         if ($_SESSION) {
-                            echo '<li class="nav-item pr-4"><a class="nav-link" href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i> Quitter</a></li>';
+                            echo '<li class="nav-item pr-lg-4"><a class="nav-link" href="index.php?action=logout"><i class="fas fa-sign-out-alt"></i> Quitter</a></li>';
                         }
                         ?>
                     </ul>

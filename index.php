@@ -3,6 +3,7 @@ session_start();
 require_once('controllers/postCntlr.php');
 require_once('controllers/commentCntrl.php');
 require_once('controllers/memberCntrl.php');
+require_once('Autoloader.php');
 
 try {
     if (isset($_GET['action'])) {
@@ -79,20 +80,3 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
-
-/*if (empty($_POST['pseudo']) && !empty($_POST['password'])) {
-                die('Veuillez renseigner votre pseudo');
-            } elseif (empty($_POST['password']) && !empty($_POST['pseudo'])) {
-                die('Veuillez rentrer votre mot de passe');
-            } elseif (empty($_POST['pseudo']) && empty($_POST['password'])) {
-                die('Veuillez remplir tous les champs');
-            } elseif (strlen($_POST['password'] < 6)) {
-                echo 'mot de passe trop court';
-                var_dump(strlen($_POST['password']));
-            } elseif (strlen($_POST['password'] > 20)) {
-                echo 'Mot de passe trop long';
-            } elseif (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $_POST['password']) === false) {
-                die('Mot de passe non conforme');
-            } else {
-                addMember(strip_tags($_POST['pseudo']), strip_tags($_POST['password']), 'user');
-            }*/

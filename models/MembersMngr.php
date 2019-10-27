@@ -2,9 +2,9 @@
 
 namespace Lmv\WriterBlog\Models;
 
-use Lmv\WriterBlog\Models\Models_DbConnect;
+use Lmv\WriterBlog\Models\DbConnect;
 
-class Models_MembersMngr extends Models_DbConnect
+class MembersMngr extends DbConnect
 {
     public function newMember($pseudo, $pswd, $status)
     {

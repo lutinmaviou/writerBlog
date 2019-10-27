@@ -2,11 +2,10 @@
 
 namespace Lmv\WriterBlog\Models;
 
-require('models/DbConnect.php');
+use Lmv\WriterBlog\Models\DbConnect;
 
-use Lmv\WriterBlog\Models\Models_DbConnect;
-
-class Models_PostsMngr extends Models_DbConnect
+require_once('models/DbConnect.php');
+class PostsMngr extends DbConnect
 {
     public function addPost($title, $chapterContent)
     {
@@ -55,5 +54,11 @@ class Models_PostsMngr extends Models_DbConnect
         LEFT JOIN comments c ON c.post_id = p.id WHERE p.id= ?');
         $deletedPost = $req->execute(array($postId));
         return $deletedPost;
+    }
+    public function getPostsPagination()
+    {
+        $req = $this->_dbConnect()->query('SELECT id FROM posts');
+        $totalPosts = $req->rowCount();
+        return $totalPosts;
     }
 }

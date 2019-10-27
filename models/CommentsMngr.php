@@ -2,9 +2,9 @@
 
 namespace Lmv\WriterBlog\Models;
 
-use Lmv\WriterBlog\Models\Models_DbConnect;
+use Lmv\WriterBlog\Models\DbConnect;
 
-class Models_CommentsMngr extends Models_DbConnect
+class CommentsMngr extends DbConnect
 {
     public function getComments($postId)
     {
