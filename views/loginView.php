@@ -25,7 +25,7 @@ ob_start(); ?>
                 <small class="form-text text-muted mb-4">
                 </small>
                 <!-- Sign up button -->
-                <button class="btn btn-outline-info px-5" type="submit">Sign in</button>
+                <button class="btn btn-info px-5" type="submit">Valider</button>
                 <p class="mb-n3 pt-4"><a href="index.php?action=subscribe">Pas encore inscrit? <i class="fas fa-sign-in-alt"></i></a></p>
             </form>
         </div>

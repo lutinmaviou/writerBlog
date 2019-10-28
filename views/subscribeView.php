@@ -21,12 +21,12 @@ ob_start(); ?>
                 <!-- Password -->
                 <label for="password">
                     <input type="password" id="password" name="password" class="form-control mr-lg-5" placeholder="Mot de passe" required>
-                    <span class="text-light minChars">(6 caractères minimum)</span>
+                    <span class="text-secondary minChars">(6 caractères minimum)</span>
                 </label>
                 <small class="form-text text-muted mb-4">
                 </small>
                 <!-- Sign up button -->
-                <button class="btn btn-outline-info px-5" type="submit">Valider</button>
+                <button class="btn btn-info px-5" type="submit">Valider</button>
             </form>
         </div>
     </div>
