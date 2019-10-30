@@ -20,7 +20,7 @@ ob_start(); ?>
                 </div>
                 <!-- Password -->
                 <label for="password">
-                    <input type="password" id="password" name="password" class="form-control mr-lg-5" placeholder="Mot de passe" required>
+                    <input type="password" id="password" name="password" class="form-control mr-lg-5" placeholder="Mot de passe" minlength="6" required>
                     <span class="text-secondary minChars">(6 caractères minimum)</span>
                 </label>
                 <small class="form-text text-muted mb-4">
