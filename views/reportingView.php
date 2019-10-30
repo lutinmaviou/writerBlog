@@ -9,10 +9,10 @@ ob_start();
             foreach ($reportedComments as $data) {
                 ?>
                 <div class="border line-height-5 p-3">
-                    <h5><?= htmlspecialChars(trim($data['author'])) . ' le ' . $data['commentDateFr'] ?></h5>
+                    <h5><?= htmlspecialChars(trim($data['author'])) . ' <em id="dateTime-sm">le ' . $data['commentDateFr'] . '</em>' ?></h5>
                     <p class="mb-n2"><?= nl2br(htmlspecialchars(trim(ucfirst($data['commentContent'])))) ?></p>
                     <form class="mb-n2 text-right bg-white btn-sm" action="index.php?action=deleteComment&amp;id= <?= $data['post_id'] ?> &amp;commentId= <?= $data['id'] ?>&amp;status=1" method="POST">
-                        <button class="btn btn-danger">Supprimer</button>
+                        <button class="btn btn-sm btn-danger mt-2">Supprimer</button>
                     </form>
                 </div>
             <?php

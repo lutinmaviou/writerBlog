@@ -57,7 +57,7 @@ ob_start();
                                     if ($_SESSION && $_SESSION['status'] === '1') {
                                         ?>
                             <form class="text-right" action="index.php?action=deleteComment&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>" method="POST">
-                                <button class="btn btn-sm btn-danger">Supprimer</button>
+                                <button class="btn btn-sm btn-danger mt-4">Supprimer</button>
                             </form>
                         <?php
                                 }
