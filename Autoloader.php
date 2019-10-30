@@ -1,6 +1,6 @@
 <?php
 
-namespace Lmv\writerBlog\Models;
+//namespace Lmv\writerBlog;
 
 class Autoloader
 {

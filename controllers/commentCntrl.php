@@ -1,6 +1,9 @@
 <?php
 
-use Lmv\writerBlog\Models\CommentsMngr;
+//namespace Lmv\writerBlog\controllers;
+require_once('models/CommentsMngr.php');
+
+use Lmv\WriterBlog\Models\CommentsMngr;
 
 function createComment($postId, $author, $comment, $status)
 {

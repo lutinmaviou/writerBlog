@@ -1,14 +1,16 @@
 <?php
 
+//namespace Lmv\writerBlog\controllers;
+
 use Lmv\WriterBlog\Models\PostsMngr;
-use Lmv\WriterBlog\Models\Pagination;
 use Lmv\WriterBlog\Models\CommentsMngr;
 
+require('models/PostsMngr.php');
+require('models/CommentsMngr.php');
 function readPosts()
 {
     $listPosts = new PostsMngr;
-    $pagination = new Pagination;
-    $nbPosts = $pagination->getPostsPagination();
+    $nbPosts = $listPosts->getPostsPagination();
     $postsPerPage = 3;
     $nbPages = ceil($nbPosts / $postsPerPage);
     if (isset($_GET['page']) && !empty($_GET['page']) && ctype_digit($_GET['page'])) {

@@ -1,9 +1,16 @@
 <?php
+
+//namespace Lmv\WriterBlog;
+
 session_start();
+
+//use Lmv\writerBlog\Autoloader;
+
 require_once('controllers/postCntlr.php');
 require_once('controllers/commentCntrl.php');
 require_once('controllers/memberCntrl.php');
 require_once('Autoloader.php');
+Autoloader::register();
 
 try {
     if (isset($_GET['action'])) {
