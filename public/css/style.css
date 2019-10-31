@@ -121,10 +121,6 @@ h4 {
 
 /* Background-color darker for mobiles */
 @media screen and (max-width: 560px) {
-    .bg-sm {
-        background-color: rgb(161, 161, 161);
-    }
-
     #lastChapters {
         font-size: 1.3em;
     }
