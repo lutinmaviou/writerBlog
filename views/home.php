@@ -23,7 +23,7 @@ ob_start();
     ?>
     <!-- Last book presentation -->
     <section>
-        <div class="container text-center my-5 py-5 bg-md bg-sm">
+        <div class="container text-center my-5 py-5 bg-md">
             <h2 class="mb-3">Mon dernier roman en ligne</h2>
             <p>Suivez son évolution au fur et à mesure de mon écriture !</p>
             <img class="mt-5" src="public/img/Sans titre.png" alt="book">
@@ -31,7 +31,7 @@ ob_start();
     </section>
     <!-- Display last 3 chapters -->
     <section>
-        <h2 class="container text-center bg-md bg-sm p-4" id="lastChapters">Derniers chapitres</h2>
+        <h2 class="container text-center bg-md p-4" id="lastChapters">Derniers chapitres</h2>
 
         <div class="container" id="articles">
             <div class="row justify-content-around">
@@ -47,7 +47,7 @@ ob_start();
                                 </a>
                             </h4>
                         </div>
-                        <div class="card-body text-justify bg-md bg-sm">
+                        <div class="card-body text-justify bg-md">
                             <?php
                                 echo substr($data['chapterContent'], 0, 150) . " ...";
                                 ?>

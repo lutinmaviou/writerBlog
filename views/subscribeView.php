@@ -8,7 +8,7 @@ ob_start(); ?>
     <div class="wrapper px-4">
         <!-- Default form register -->
         <div class="row">
-            <form class="col-md-6 text-center mx-auto bg-md bg-sm shadow border border-light rounded-lg p-5 mt-4" action="index.php?action=addMember" method="POST">
+            <form class="col-md-6 text-center mx-auto bg-md   shadow border border-light rounded-lg p-5 mt-4" action="index.php?action=addMember" method="POST">
                 <h4 class="mb-4 ">Inscription</h4>
                 <div class="form-row mb-4">
                     <div class="col">

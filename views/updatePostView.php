@@ -2,7 +2,7 @@
 ob_start();
 ?>
 <section class="container">
-    <h2 class="text-center mt-5 mb-4 mt-5 bg-sm bg-md rounded p-2">Modifier</h2>
+    <h2 class="text-center mt-5 mb-4 mt-5   bg-md rounded p-2">Modifier</h2>
     <div class="row">
         <form class="col-lg-10 text-center mx-auto bg-light border border-light rounded-lg p-5 mt-4 shadow" action="index.php?action=submitUpdatePost&amp;id=<?= $post['id'] ?>" method="POST">
             <div class="form-row mb-4">

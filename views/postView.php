@@ -49,7 +49,7 @@ ob_start();
                                     } else {
                                         ?>
                                 <p class="mb-n2 text-right"><a class="text-danger" href="index.php?action=report&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>">
-                                        <i class="fas fa-exclamation-triangle"></i> Signaler
+                                        <i class="fas fa-exclamation-triangle mt-4"></i> Signaler
                                     </a></p>
                             <?php
                                         }
