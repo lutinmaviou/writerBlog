@@ -45,7 +45,7 @@ ob_start();
                         <?php
                                 if ($_SESSION && $_SESSION['status'] != '1') {
                                     if ($data['reporting'] === '1') {
-                                        echo '<p class="mt-4 mb-n2 text-right text-danger">Ce message a été signalé</p>';
+                                        echo '<p class="mt-4 mb-n2 text-right text-danger"><em>Ce message a été signalé</em></p>';
                                     } else {
                                         ?>
                                 <p class="mb-n2 text-right"><a class="text-danger" href="index.php?action=report&amp;id= <?= $post['id'] ?> &amp;commentId= <?= $data['id'] ?>">
