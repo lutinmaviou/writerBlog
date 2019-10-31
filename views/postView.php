@@ -85,11 +85,11 @@ ob_start();
                     </div>
                 </div>
                 <label for="comment">
-                    <textarea type="text" id="comment" name="commentContent" class="form-control mr-lg-5" placeholder="Votre message" required></textarea>
+                    <textarea type="text" id="comment" name="commentContent" class="form-control mr-lg-5" cols="22" placeholder="Votre message" required></textarea>
                 </label>
                 <small class="form-text text-muted mb-4">
                 </small>
-                <button class="btn btn-outline-info px-5" type="submit">Envoyer</button>
+                <button class="btn btn-info px-5" type="submit">Envoyer</button>
             </form>
         <?php
         } else {

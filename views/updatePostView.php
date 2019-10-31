@@ -17,7 +17,7 @@ ob_start();
             </label>
             <small class="form-text text-muted mb-4">
             </small>
-            <button class="btn btn-outline-info px-5" type="submit">Envoyer</button>
+            <button class="btn btn-info px-5" type="submit">Envoyer</button>
         </form>
     </div>
 </section>

@@ -14,7 +14,7 @@ ob_start();
         <div class="text-center">
             <p>
                 <a href="index.php?action=displayReports">
-                    <button class="btn btn-outline-danger">Messages signalés par les lecteurs ! <i class="fas fa-sign-in-alt"></i></button>
+                    <button class="btn btn-danger">Messages signalés par les lecteurs ! <i class="fas fa-sign-in-alt"></i></button>
                 </a>
             </p>
         </div>
