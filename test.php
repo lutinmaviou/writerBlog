@@ -1,4 +1,2 @@
 <?php
-
-echo getenv('SQL_HOST');
-echo 'salut';
+echo __CLASS__;

@@ -85,7 +85,7 @@ ob_start();
                     </div>
                 </div>
                 <label for="comment">
-                    <textarea type="text" id="comment" name="commentContent" class="form-control mr-lg-5" cols="22" placeholder="Votre message" required></textarea>
+                    <textarea type="text" id="comment" name="commentContent" class="form-control mr-lg-5" cols="21" placeholder="Votre message" required></textarea>
                 </label>
                 <small class="form-text text-muted mb-4">
                 </small>

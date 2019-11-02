@@ -2,9 +2,8 @@
 
 namespace Lmv\WriterBlog\Models;
 
-use Lmv\WriterBlog\Models\DbConnect;
+use \Lmv\WriterBlog\Models\DbConnect;
 
-require('models/DbConnect.php');
 class PostsMngr extends DbConnect
 {
     public function addPost($title, $chapterContent)

@@ -1,16 +1,19 @@
 <?php
 
-//namespace Lmv\WriterBlog;
-
 session_start();
+require('models/DbConnect.php');
+require('models/PostsMngr.php');
+require('models/CommentsMngr.php');
+require('models/MembersMngr.php');
+
+require('controllers/postCntlr.php');
+require('controllers/commentCntrl.php');
+require('controllers/memberCntrl.php');
+//require_once('Autoloader.php');
 
 //use Lmv\writerBlog\Autoloader;
 
-require_once('controllers/postCntlr.php');
-require_once('controllers/commentCntrl.php');
-require_once('controllers/memberCntrl.php');
-require_once('Autoloader.php');
-Autoloader::register();
+//Autoloader::register();
 
 try {
     if (isset($_GET['action'])) {

@@ -5,8 +5,6 @@
 use Lmv\WriterBlog\Models\PostsMngr;
 use Lmv\WriterBlog\Models\CommentsMngr;
 
-require('models/PostsMngr.php');
-require('models/CommentsMngr.php');
 function readPosts()
 {
     $listPosts = new PostsMngr;

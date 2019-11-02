@@ -1,7 +1,6 @@
 <?php
 
 //namespace Lmv\writerBlog\controllers;
-require_once('models/MembersMngr.php');
 
 use Lmv\WriterBlog\Models\MembersMngr;
 
