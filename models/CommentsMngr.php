@@ -2,7 +2,7 @@
 
 namespace Lmv\WriterBlog\Models;
 
-use \Lmv\WriterBlog\Models\DbConnect;
+use Lmv\WriterBlog\Models\DbConnect;
 
 class CommentsMngr extends DbConnect
 {

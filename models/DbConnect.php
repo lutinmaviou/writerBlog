@@ -16,6 +16,7 @@ class DbConnect
         }
     }
 }
+
 // $db = new \PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
 // $db = new \PDO('mysql:host=db5000206120.hosting-data.io;dbname=dbs201063;charset=utf8', 'dbu330117', 'writerBlog_123');
 // AuthUserFile "/homepages/12/d771396630/htdocs/writerBlog/chemin.php\security\ht.passwd"
