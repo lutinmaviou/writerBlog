@@ -6,7 +6,7 @@ ob_start();
     <?php
     // Say hello to connected user
     if ($_SESSION) {
-        echo '<p class="pt-3 pl-3 text-primary font-weight-bold">Bonjour ' . $_SESSION['pseudo'] . ' !</p>';
+        echo '<p class="pt-3 text-primary font-weight-bold text-center text-sm-left">Bonjour ' . $_SESSION['pseudo'] . ' !</p>';
     }
     // If admin connected, display reported messages
     if ($_SESSION && $_SESSION['status'] === '1') {

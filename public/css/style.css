@@ -113,15 +113,14 @@ h4 {
     }
 }
 
-@media screen and (max-width: 330px) {
-    .btn-update {
-        margin-bottom: 10px;
-    }
-}
-
-/* Background-color darker for mobiles */
 @media screen and (max-width: 560px) {
     #lastChapters {
         font-size: 1.3em;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .btn-update {
+        margin-bottom: 10px;
     }
 }
