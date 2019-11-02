@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <script src="public/js/tinymce/tinymce.min.js"></script>
-    <script type="text/javascript">
+    <script>
         tinyMCE.init({
             selector: "textarea.tinyMce",
             language: "fr_FR",
@@ -44,7 +44,7 @@
                     } ?>">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php?page=1">
-                    <div class="d-flex" id=" logo">
+                    <div class="d-flex">
                         <img src="public/img/al_copyrighter.png" alt="feather" id="logo">
                         <h1>Jean Forteroche</h1>
                     </div>
