@@ -55,9 +55,7 @@ ob_start();
                             <p><a href="index.php?action=post&amp;id=<?= $data['id']; ?>" class="text-primary">Lire la suite</a></p>
                         </div>
                         <div class="card-footer text-dark mb-3">
-                            <em>
-                                <p class="text-center" id="publicationDate">publié le <?php echo $data['postDateFr']; ?></p>
-                            </em>
+                            <p class="text-center publicationDate"><em>publié le <?php echo $data['postDateFr']; ?></em></p>
                         </div>
                     </article>
                 <?php
@@ -67,7 +65,7 @@ ob_start();
         </div>
     </section>
     <!-- Pagination -->
-    <section>
+    <div>
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
                 <li class="page-item <?php
@@ -99,7 +97,7 @@ ob_start();
                 </li>
             </ul>
         </nav>
-    </section>
+    </div>
 </div>
 <?php
 
