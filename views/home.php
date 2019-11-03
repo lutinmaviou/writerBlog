@@ -26,7 +26,8 @@ ob_start();
         <div class="container text-center my-5 py-5 bg-md">
             <h2 class="mb-3">Mon dernier roman en ligne</h2>
             <p>Suivez son évolution au fur et à mesure de mon écriture !</p>
-            <img class="mt-5" src="public\img\jfbook.png" alt="book">
+            <img class="mt-5" src="public/img/admin.png" alt="book">
+
         </div>
     </section>
     <!-- Display last 3 chapters -->
