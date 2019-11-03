@@ -8,6 +8,17 @@
     <meta name="author" content="Bertrand Bourion" />
     <meta name="description" content="Le blog de Jean Forteroche. Son nouveau roman publié en ligne." />
     <meta name="keywords" content="Jean Forteroche, écrivain, acteur, nouveau roman, chapitres" />
+    <!-- OPEN GRAPHS -->
+    <meta property="og:title" content="Le blog de Jean Forteroche" />
+    <meta property="og:type" content="Blog" />
+    <meta property="og:image" content="public/img/book.png" />
+    <meta property="og:url" content="http://www.writerblog.yourwebangency.fr">
+    <!-- TWITTER CARDS -->
+    <meta name="twitter:card" content="summary" />
+    <meta name=”twitter:site” content="http://www.writerblog.yourwebagency.fr" />
+    <meta name="twitter:title" content="Blog" />
+    <meta name="twitter:description" content="Le blog de Jean Forteroche" />
+    <meta name="twitter:image" content="public/img/book.png" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">

@@ -1,7 +1,5 @@
 <?php
 
-//namespace Lmv\writerBlog\controllers;
-
 use Lmv\WriterBlog\Models\CommentsMngr;
 
 function createComment($postId, $author, $comment, $status)

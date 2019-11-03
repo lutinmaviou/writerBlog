@@ -1,7 +1,5 @@
 <?php
 
-//namespace Lmv\writerBlog\controllers;
-
 use Lmv\WriterBlog\Models\MembersMngr;
 
 function displayLoginView()
