@@ -78,7 +78,7 @@ ob_start();
             <form class="col-md-6 text-center mx-auto bg-md border border-light rounded-lg shadow p-5 mt-4" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="POST">
                 <p class="h4 pb-4">Commenter</p>
                 <label for="comment">
-                    <textarea type="text" id="comment" name="commentContent" class="form-control mr-lg-5" cols="21" placeholder="Votre message" required></textarea>
+                    <textarea type="text" id="comment" name="commentContent" class="form-control mr-lg-5" cols="30" rows="5" placeholder="Votre message" required></textarea>
                 </label>
                 <small class="form-text text-muted mb-4">
                 </small>

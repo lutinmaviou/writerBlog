@@ -26,7 +26,7 @@ ob_start();
         <div class="container text-center my-5 py-5 bg-md">
             <h2 class="mb-3">Mon dernier roman en ligne</h2>
             <p>Suivez son évolution au fur et à mesure de mon écriture !</p>
-            <img class="mt-5" src="public/img/book.png" alt="book">
+            <img class="mt-5" src="public/img/book.png" alt="Le dernier livre de Jean Forteroche">
 
         </div>
     </section>
@@ -68,10 +68,7 @@ ob_start();
     <div>
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
-                <li class="page-item <?php
-                                        if ($currentPage <= 1) {
-                                            ?>disabled<?php
-                                                        } ?>">
+                <li class="page-item <?php if ($currentPage <= 1) { ?>disabled<?php } ?>">
                     <a class="page-link" href="index.php?page=<?= $previousPage ?>" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                         <span class="sr-only">Previous</span>
@@ -86,10 +83,7 @@ ob_start();
                 <?php
                 }
                 ?>
-                <li class="page-item <?php
-                                        if ($currentPage >= $nbPages) {
-                                            ?>disabled<?php
-                                                        } ?>">
+                <li class="page-item <?php if ($currentPage >= $nbPages) { ?>disabled<?php } ?>">
                     <a class="page-link" href="index.php?page=<?= $nextPage ?>" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                         <span class="sr-only">Next</span>
